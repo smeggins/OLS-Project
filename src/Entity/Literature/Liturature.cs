@@ -8,19 +8,21 @@ using System.Threading.Tasks;
 
 public class Liturature : Entity
 {
-    public Liturature(string a_libraryCode) : base(a_libraryCode) 
+    public Liturature(string a_title, LituratureMedium a_medium) : base(a_title) 
     {
         authors = new List<string>();
         publishers = new List<string>();
         illustrators = new List<string>();
+        medium = a_medium;
         genre = new List<VideoAndLituratureGenre>();
+        libraryCode += "L." + (int)medium + "." + a_title[0];
     }
 
     public List<string> authors;
     public List<string> publishers;
     public List<string> illustrators;
     public List<VideoAndLituratureGenre> genre;
-    public string medium { get; set; }
+    public LituratureMedium medium { get; set; }
     public string coverArtist { get; set; }
     public string countryOfOrigin { get; set; }
     public string LCClass { get; set; }//Library of Congress Number

@@ -17,7 +17,29 @@ enum VideoGameMode
 
 class VideoGame : Entity
 {
-    public VideoGame(string a_libraryCode) : base(a_libraryCode) { }
+    public VideoGame(string a_title, List<VideoGameMedium> a_platforms) : base(a_title) 
+    {
+        platforms = new List<VideoGameMedium>();
+        genre = new List<VideoGameGenre>();
+        modes = new List<VideoGameMode>();
+        headProgrammers = new List<string>();
+        developers = new List<string>();
+        publishers = new List<string>();
+        directors = new List<string>();
+        producers = new List<string>();
+        designers = new List<string>();
+        artists = new List<string>();
+        writers = new List<string>();
+        release = new List<string>();
+        composer = new List<string>();
+
+    libraryCode += a_title[0] + ".";
+        foreach (VideoGameMedium item in a_platforms)
+        {
+            libraryCode += (int)item + ".";
+        }
+        libraryCode += "VG";
+    }
 
     public List<VideoGameMedium> platforms;
     public List<VideoGameGenre> genre;
@@ -34,7 +56,7 @@ class VideoGame : Entity
     public List<string> composer;
     public string series { get; set; }
 
-    public void print(Liturature instantiatedEntiy)
+    public void print(VideoGame instantiatedEntiy)
     {
         printProperties(instantiatedEntiy);
 

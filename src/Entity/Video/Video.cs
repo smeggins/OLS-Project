@@ -6,23 +6,38 @@ using System.Threading.Tasks;
 
 public class Video : Entity
 {
-    public Video(string a_libraryCode) : base(a_libraryCode) { }
+    public Video(string a_title, List<VideoMedium> a_mediums) : base(a_title) 
+    {
+        actors = new List<string>();
+        stars = new List<string>();
+        writers = new List<string>();
+        producers = new List<string>();
+        mediums = new List<VideoMedium>();
+        genre = new List<VideoAndLituratureGenre>();
 
-    List<string> actors;
-    List<string> stars;
-    List<string> writers;
-    List<string> producers;
-    List<VideoMedium> mediums;
-    List<VideoAndLituratureGenre> genre;
-    string cinematogrophy { get; set; }
-    string distributer { get; set; }
-    string director { get; set; }
-    string country { get; set; }
-    string editer { get; set; }
-    string music { get; set; }
-    int budget { get; set; }
-    int boxOffice { get; set; }
-    int runningTime { get; set; }
+    libraryCode += a_title[0] + ".";
+        foreach (VideoMedium item in a_mediums)
+        {
+            libraryCode += (int)item + ".";
+        }
+        libraryCode += "V";
+    }
+
+    public List<string> actors;
+    public List<string> stars;
+    public List<string> writers;
+    public List<string> producers;
+    public List<VideoMedium> mediums;
+    public List<VideoAndLituratureGenre> genre;
+    public string cinematogrophy { get; set; }
+    public string distributer { get; set; }
+    public string director { get; set; }
+    public string country { get; set; }
+    public string editer { get; set; }
+    public string music { get; set; }
+    public int budget { get; set; }
+    public int boxOffice { get; set; }
+    public int runningTime { get; set; }
 
 
     public void print(Video instantiatedEntiy)
