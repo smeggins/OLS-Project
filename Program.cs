@@ -9,6 +9,7 @@ namespace OLS
             Liturature theHobbit = new Liturature("Brawk");
             theHobbit.authors.Add("JRR. Tolken");
             theHobbit.genre.Add(VideoAndLituratureGenre.Fantasy);
+            theHobbit.med
             theHobbit.countryOfOrigin = "canada";
             theHobbit.pages = 242;
             theHobbit.print(theHobbit);

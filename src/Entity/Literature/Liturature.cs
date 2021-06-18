@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 
-enum LituratureMedium
-{
-    Book,
-    Magazine
-}
+
 public class Liturature : Entity
 {
     public Liturature(string a_libraryCode) : base(a_libraryCode) 
@@ -25,6 +20,7 @@ public class Liturature : Entity
     public List<string> publishers;
     public List<string> illustrators;
     public List<VideoAndLituratureGenre> genre;
+    public string medium { get; set; }
     public string coverArtist { get; set; }
     public string countryOfOrigin { get; set; }
     public string LCClass { get; set; }//Library of Congress Number

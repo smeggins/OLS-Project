@@ -14,13 +14,7 @@ enum VideoGameMode
     vs,
     onlineVS
 }
-enum VideoGameMedium
-{
-    PC,
-    XboxOne,
-    PS5,
-    Switch
-}
+
 class VideoGame : Entity
 {
     public VideoGame(string a_libraryCode) : base(a_libraryCode) { }
