@@ -15,7 +15,7 @@ public class Video : Entity
         mediums = new List<VideoMedium>();
         genre = new List<VideoAndLituratureGenre>();
 
-    libraryCode += a_title[0] + ".";
+        libraryCode += a_title[0] + ".";
         foreach (VideoMedium item in a_mediums)
         {
             libraryCode += (int)item + ".";

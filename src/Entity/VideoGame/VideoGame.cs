@@ -33,7 +33,7 @@ class VideoGame : Entity
         release = new List<string>();
         composer = new List<string>();
 
-    libraryCode += a_title[0] + ".";
+        libraryCode += a_title[0] + ".";
         foreach (VideoGameMedium item in a_platforms)
         {
             libraryCode += (int)item + ".";
