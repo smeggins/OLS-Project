@@ -38,3 +38,55 @@ public enum VideoAndLituratureGenre
     Sport,
     Other
 }
+
+public enum VideoGameGenre
+{
+    Platformer,
+    Shooter,
+    Fighting,
+    BeatEmUp,
+    Stealth,
+    Survival,
+    Rhythm,
+    BattleRoyal,
+    Horror,
+    Metroidvania,
+    Text,
+    PointAndClick,
+    RPG,
+    MMORPG,
+    RogueLike,
+    Sandbox,
+    JRPG,
+    Simulation,
+    Strategy,
+    FourX,
+    MOBA,
+    AutoChess,
+    RTS,
+    TowerDefense,
+    TurnBased,
+    Sports,
+    Racing,
+    Mobile,
+    Party,
+    Trivia,
+    Educational,
+    Child
+}
+
+public enum AudioGenre
+{
+    Blues,
+    Country,
+    Electronic,
+    HipHop,
+    Jazz,
+    Pop,
+    Rock,
+    Rap,
+    Folk,
+    Opera,
+    Metal,
+    Instrumental
+}

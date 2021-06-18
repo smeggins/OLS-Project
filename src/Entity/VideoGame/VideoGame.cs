@@ -4,41 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum VideoGameGenre
-{
-    Platformer,
-    Shooter,
-    Fighting,
-    BeatEmUp,
-    Stealth,
-    Survival,
-    Rhythm,
-    BattleRoyal,
-    Horror,
-    Metroidvania,
-    Text,
-    PointAndClick,
-    RPG,
-    MMORPG,
-    RogueLike,
-    Sandbox,
-    JRPG,
-    Simulation,
-    Strategy,
-    FourX,
-    MOBA,
-    AutoChess,
-    RTS,
-    TowerDefense,
-    TurnBased,
-    Sports,
-    Racing,
-    Mobile,
-    Party,
-    Trivia,
-    Educational,
-    Child
-}
 enum VideoGameMode
 {
     singlePlayer,

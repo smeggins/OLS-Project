@@ -4,21 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum AudioGenre
-{
-    Blues,
-    Country,
-    Electronic,
-    HipHop,
-    Jazz,
-    Pop,
-    Rock,
-    Rap,
-    Folk,
-    Opera,
-    Metal,
-    Instrumental
-}
 enum AudioMedium
 {
     CD,
