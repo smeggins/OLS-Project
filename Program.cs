@@ -42,7 +42,11 @@ namespace OLS
 
             Console.WriteLine("\n\n");
 
-            Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", AudioMedium.Phone);
+            List<AudioMedium> mediumListC = new List<AudioMedium>();
+            mediumListC.Add(AudioMedium.CD);
+            mediumListC.Add(AudioMedium.Digital);
+
+            Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", mediumListC);
             NAVUZIMETRO.artists.Add("Nav");
             NAVUZIMETRO.artists.Add("Metro Boomin");
             NAVUZIMETRO.featuredArtists.Add("Lil Uzi Vert");

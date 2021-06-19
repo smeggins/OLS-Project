@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 public class Entity 
 {
-
-
     public Entity(string a_title)
     {
         uniqueItems += 1;
@@ -18,7 +16,6 @@ public class Entity
     }
     // format: (uniqueItem number)(Generic Type).(medium Enum Numbers separated by periods).(first letter of title)
     // example for movie alien: 1V.0.1.A
-   
    
     public string libraryCode { get; set; } 
     public string title { get; set; }

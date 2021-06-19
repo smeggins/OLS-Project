@@ -7,25 +7,32 @@ using System.Threading.Tasks;
 
 class Audio : Entity
 {
+    public Audio(string a_title, List<AudioMedium> a_mediums) : base(a_title)
+    {
+        //songTitle = a_songTitle;
+        artists = new List<string>();
+        producers = new List<string>();
+        mediums = a_mediums;
+        featuredArtists = new List<string>();
+        genre = new List<AudioGenre>();
+        Labels = new List<string>();
+
+        libraryCode += a_title[0] + ".";
+        foreach (VideoMedium item in a_mediums)
+        {
+            libraryCode += (int)item + ".";
+        }
+        libraryCode += "A";
+    }
     public List<string> artists;
     public List<string> featuredArtists;
     public List<string> producers;
     public string songTitle { get; set; }
     public List<AudioGenre> genre;
-    public AudioMedium medium { get; set; }
+    public List<AudioMedium> mediums;
     public List<string> Labels;
 
-    public Audio(string a_songTitle, AudioMedium a_medium) : base(a_songTitle)
-    {
-        //songTitle = a_songTitle;
-        artists = new List<string>();
-        producers = new List<string>();
-        medium = a_medium;
-        featuredArtists = new List<string>();
-        genre = new List<AudioGenre>();
-        libraryCode += "A." + (int)medium + "." + a_songTitle;
-        Labels = new List<string>();
-    }
+    
 
     public void print(Audio instantiatedEntiy)
     {

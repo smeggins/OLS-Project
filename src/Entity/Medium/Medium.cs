@@ -28,10 +28,5 @@ enum AudioMedium
 {
     CD,
     Record,
-    Phone, 
-    Computer,
-    TV, 
-    PS5,
-    XboxOne,
-    Tablet
+    Digital
 }
