@@ -44,6 +44,7 @@ public class Video : Entity
     {
         printProperties(instantiatedEntiy);
 
+        
         printList<string>(actors, "actors");
         printList<string>(stars, "stars");
         printList<string>(writers, "writers");

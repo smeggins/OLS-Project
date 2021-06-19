@@ -23,3 +23,15 @@ public enum VideoGameMedium
     PS5,
     Switch
 }
+
+enum AudioMedium
+{
+    CD,
+    Record,
+    Phone, 
+    Computer,
+    TV, 
+    PS5,
+    XboxOne,
+    Tablet
+}

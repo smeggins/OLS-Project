@@ -39,6 +39,17 @@ namespace OLS
             Alien.country = "America";
             Alien.director = "Ridley Scott";
             Alien.print(Alien);
+
+            Console.WriteLine("\n\n");
+
+            Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", AudioMedium.Phone);
+            NAVUZIMETRO.artists.Add("Nav");
+            NAVUZIMETRO.artists.Add("Metro Boomin");
+            NAVUZIMETRO.featuredArtists.Add("Lil Uzi Vert");
+            NAVUZIMETRO.producers.Add("Nav");
+            NAVUZIMETRO.producers.Add("Metro Boomin");
+            NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
+            NAVUZIMETRO.print(NAVUZIMETRO);
         }
     }
 }
