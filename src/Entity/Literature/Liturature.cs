@@ -31,9 +31,9 @@ public class Liturature : Entity
     public int pages { get; set; }
     public int OCLC { get; set; }//Online Central Library Center Number
 
-    public void print(Liturature instantiatedEntiy)
+    public override void print()
     {
-        printProperties(instantiatedEntiy);
+        printProperties(this);
 
         printList<string>(authors, "authors");
         printList<string>(publishers, "publishers");

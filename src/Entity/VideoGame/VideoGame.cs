@@ -56,9 +56,9 @@ class VideoGame : Entity
     public List<string> composer;
     public string series { get; set; }
 
-    public void print(VideoGame instantiatedEntiy)
+    public override void print()
     {
-        printProperties(instantiatedEntiy);
+        printProperties(this);
 
         printList<string>(headProgrammers, "headProgrammers");
         printList<string>(developers, "developers");

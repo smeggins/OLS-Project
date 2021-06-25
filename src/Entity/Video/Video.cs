@@ -40,11 +40,10 @@ public class Video : Entity
     public int runningTime { get; set; }
 
 
-    public void print(Video instantiatedEntiy)
+    public override void print()
     {
-        printProperties(instantiatedEntiy);
+        printProperties(this);
 
-        
         printList<string>(actors, "actors");
         printList<string>(stars, "stars");
         printList<string>(writers, "writers");

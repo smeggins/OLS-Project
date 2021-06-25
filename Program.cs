@@ -15,8 +15,8 @@ namespace OLS
             theHobbit.genre.Add(VideoAndLituratureGenre.Fantasy);
             theHobbit.countryOfOrigin = "canada";
             theHobbit.pages = 242;
-            theHobbit.print(theHobbit);
-            
+            theHobbit.print();
+
             Console.WriteLine("\n\n");
 
             List<VideoGameMedium> mediumList = new List<VideoGameMedium>();
@@ -26,7 +26,12 @@ namespace OLS
             VideoGame seaOfThieves = new VideoGame("Sea Of Thieves", mediumList);
             seaOfThieves.publishers.Add("Microsoft");
             seaOfThieves.developers.Add("Rare");
-            seaOfThieves.print(seaOfThieves);
+            seaOfThieves.print();
+
+            List<string> meh = seaOfThieves.publishers;
+            meh.Add("jim bob");
+
+            //seaOfThieves.update(a_publishers:meh);
 
             Console.WriteLine("\n\n");
 
@@ -38,7 +43,7 @@ namespace OLS
             Video Alien = new Video("Alien", mediumListB);
             Alien.country = "America";
             Alien.director = "Ridley Scott";
-            Alien.print(Alien);
+            Alien.print();
 
             Console.WriteLine("\n\n");
 
@@ -53,7 +58,9 @@ namespace OLS
             NAVUZIMETRO.producers.Add("Nav");
             NAVUZIMETRO.producers.Add("Metro Boomin");
             NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
-            NAVUZIMETRO.print(NAVUZIMETRO);
+            NAVUZIMETRO.print();
+
+            //TestcodeShelf.test();
         }
     }
 }

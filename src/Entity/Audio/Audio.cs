@@ -34,9 +34,9 @@ class Audio : Entity
 
     
 
-    public void print(Audio instantiatedEntiy)
+    public override void print()
     {
-        printProperties(instantiatedEntiy);
+        printProperties(this);
 
         printList<string>(artists, "artists");
         printList<string>(featuredArtists, "Featured Artists");

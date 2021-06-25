@@ -6,13 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public class Entity 
+public abstract class Entity 
 {
     public Entity(string a_title)
     {
         uniqueItems += 1;
         libraryCode += uniqueItems;
         title = a_title;
+        copiesTotal = 1;
+        copiesAvailable = 1;
     }
     // format: (uniqueItem number)(Generic Type).(medium Enum Numbers separated by periods).(first letter of title)
     // example for movie alien: 1V.0.1.A
@@ -20,10 +22,13 @@ public class Entity
     public string libraryCode { get; set; } 
     public string title { get; set; }
     public string releaseDate { get; set; } //format: 11/26/1986 
+    public int copiesTotal { get; set; }
+    public int copiesAvailable { get; set; }
     List<Entity> preceededBy;
     List<Entity> followedBy;
     private static int uniqueItems = 0;
 
+    public abstract void print();
     public void printProperties(Entity instatiatedEntity)
     {
         // iterates through all properties of class and prints them
