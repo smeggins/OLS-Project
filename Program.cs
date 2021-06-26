@@ -62,7 +62,7 @@ namespace OLS
             NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
             NAVUZIMETRO.print();
 
-            User Abbe = new User("Abbe Azale", 11111);
+            User Abbe = new User("Abbe Azale");
             Abbe.printInfo();
 
 
