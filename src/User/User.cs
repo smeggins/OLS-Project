@@ -9,12 +9,12 @@ namespace OLS.src.User
     public class User 
     {
         public string FullName { get; set; }
-        public int UserNumber { get; set; }
+        public int UserNumber = 0;
 
-        public User(string fullName, int userNumber)
+        public User(string fullName)
         {
             FullName = fullName;
-            UserNumber = userNumber;
+            UserNumber += 1;
         }
 
 
@@ -22,5 +22,7 @@ namespace OLS.src.User
         {
             Console.WriteLine("The users name is {0} and their number is {1}", FullName, UserNumber);
         }
+
+
     }
 }
