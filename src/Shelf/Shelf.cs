@@ -166,5 +166,24 @@ class Shelf
         }
     }
 
+    public void updateItem(entityTypes type, string title)
+    {
+        int itemindex = search(type, searchParam.title, title);
+        string newTitle = "";
+        Object item;
+
+        if (itemindex != -1)
+        {
+            item = LibraryShelf[type][itemindex].title ;
+            newTitle = Console.ReadLine();
+            item = newTitle;
+        }
+        else
+        {
+            Console.WriteLine(title + " Could not be found. Please enter a valid title");
+        }
+
+    } 
+
 
 }

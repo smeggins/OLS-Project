@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OLS.src.Cart;
+using OLS.src.User;
 
 namespace OLS
 {
@@ -59,6 +61,21 @@ namespace OLS
             NAVUZIMETRO.producers.Add("Metro Boomin");
             NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
             NAVUZIMETRO.print();
+
+            User Abbe = new User("Abbe Azale", 11111);
+            Abbe.printInfo();
+
+
+            Cart guysCart = new Cart("Abbe's Cart");
+
+            guysCart.addItem("Alien");
+            guysCart.addItem("Sea Of Thieves");
+
+            guysCart.printCart();
+
+            guysCart.removeItem("Alien");
+            Console.WriteLine("after deleting....");
+            guysCart.printCart();
 
             //TestcodeShelf.test();
         }
