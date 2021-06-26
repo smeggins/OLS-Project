@@ -25,14 +25,18 @@ namespace OLS.src.Cart
            
         }
 
-        public void addItem(string item)
+        public  string addItem(string item)
         {
             items.Add(item);
+
+            return (item + "has been added");
         }
 
-        public void removeItem(string item)
+        public string removeItem(string item)
         {
             items.Remove(item);
+
+            return (item + "has been deleted");
         }
 
 
