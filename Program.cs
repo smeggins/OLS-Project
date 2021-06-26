@@ -73,6 +73,7 @@ namespace OLS
 
             guysCart.printCart();
 
+
             guysCart.removeItem("Alien");
             Console.WriteLine("after deleting....");
             guysCart.printCart();
