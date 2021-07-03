@@ -84,6 +84,8 @@ class TestcodeShelf
 
 
         return theShelf;
+
+        //theShelf.search(entityTypes.Liturature, Shelf.searchParam, )
     }
 
     public static void test() 
@@ -126,6 +128,7 @@ class TestcodeShelf
         //Console.WriteLine("number of sword of truth books after remove inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
         Console.WriteLine("\n\n");
 
+
         //Search
         libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "The Sword Of Truth");
         //Console.WriteLine("title search: The index of the sword of truth book is: " + bookIndex);
@@ -133,6 +136,7 @@ class TestcodeShelf
         //Console.WriteLine("library Code search: The index of the sword of truth book is: " + libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.libraryCode, libraryCode));
         //Console.WriteLine("searching for a book that doesn't exist: " + libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "JIM JAM"));
         Console.WriteLine("\n\n");
+        
 
         //Read
         //Console.WriteLine("reading the book info from shelf:\n");
@@ -143,7 +147,7 @@ class TestcodeShelf
 
 
 
-
+        libraryShelf.updateItem(entityTypes.Liturature, "Brawk", "new Brawk");
 
 
 

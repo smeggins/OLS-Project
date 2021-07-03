@@ -185,16 +185,16 @@ class Shelf
         }
     }
 
-    public string updateItem(entityTypes type, string title)
+    public string updateItem(entityTypes type, string title, string newTitle)
     {
         int itemindex = search(type, searchParam.title, title);
-        string newTitle = "";
+       
         Object item;
 
         if (itemindex != -1)
         {
             item = LibraryShelf[type][itemindex].title ;
-            newTitle = Console.ReadLine();
+            
             item = newTitle;
             return LibraryShelf[type][itemindex].title + "has updated to " + newTitle;
         }
