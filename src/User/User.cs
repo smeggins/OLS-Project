@@ -10,11 +10,13 @@ namespace OLS.src.User
     {
         public string FullName { get; set; }
         public int UserNumber = 0;
+        private Cart cart;
 
         public User(string fullName)
         {
             FullName = fullName;
             UserNumber += 1;
+            cart = new Cart();
         }
 
 
