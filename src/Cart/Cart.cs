@@ -15,17 +15,17 @@ namespace OLS.src.Cart
         public string userCart { get; set; }
 
 
-        public Cart(string usersCart )
+        public Cart(string usersCart)
         {
             userCart = usersCart;
             items = new List<string>();
             quantity = items.Count();
 
             //products = entityTypes();
-           
+
         }
 
-        public  string addItem(string item)
+        public string addItem(string item)
         {
             items.Add(item);
 
@@ -43,9 +43,9 @@ namespace OLS.src.Cart
         public void printCart()
         {
 
-            string itemList = string.Join(", ",  items.ToArray());
+            string itemList = string.Join(", ", items.ToArray());
 
-            Console.WriteLine("The items in the cart are {0}", itemList );
+            Console.WriteLine("The items in the cart are {0}", itemList);
         }
 
     }

@@ -24,7 +24,7 @@ public enum VideoGameMedium
     Switch
 }
 
-enum AudioMedium
+public enum AudioMedium
 {
     CD,
     Record,

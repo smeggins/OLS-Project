@@ -65,4 +65,15 @@ public abstract class Entity
             }
         }
     }
+    public void printPersonList(List<Person> list, string Header)
+    {
+        if (list.Count() != 0)
+            Console.WriteLine(Header + ": ");
+        {
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.firstName + " " + item.lastName);
+            }
+        }
+    }
 }

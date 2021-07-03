@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-class Audio : Entity
+public class Audio : Entity
 {
     public Audio(string a_title, List<AudioMedium> a_mediums) : base(a_title)
     {
         //songTitle = a_songTitle;
-        artists = new List<string>();
-        producers = new List<string>();
+        artists = new List<Person>();
+        producers = new List<Person>();
         mediums = a_mediums;
-        featuredArtists = new List<string>();
+        featuredArtists = new List<Person>();
         genre = new List<AudioGenre>();
         Labels = new List<string>();
 
@@ -24,9 +24,9 @@ class Audio : Entity
         }
         libraryCode += "A";
     }
-    public List<string> artists;
-    public List<string> featuredArtists;
-    public List<string> producers;
+    public List<Person> artists;
+    public List<Person> featuredArtists;
+    public List<Person> producers;
     public string songTitle { get; set; }
     public List<AudioGenre> genre;
     public List<AudioMedium> mediums;
@@ -38,9 +38,9 @@ class Audio : Entity
     {
         printProperties(this);
 
-        printList<string>(artists, "artists");
-        printList<string>(featuredArtists, "Featured Artists");
-        printList<string>(producers, "Producers");
+        printPersonList(artists, "artists");
+        printPersonList(featuredArtists, "Featured Artists");
+        printPersonList(producers, "Producers");
         printList<string>(Labels, "Labels");
         printList<AudioGenre>(genre, "Genre");
         //printList<AudioMedium>(medium, "Medium");

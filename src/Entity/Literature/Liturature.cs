@@ -10,23 +10,23 @@ public class Liturature : Entity
 {
     public Liturature(string a_title, LituratureMedium a_medium) : base(a_title) 
     {
-        authors = new List<string>();
-        publishers = new List<string>();
-        illustrators = new List<string>();
+        authors = new List<Person>();
+        publishers = new List<Person>();
+        illustrators = new List<Person>();
         medium = a_medium;
         genre = new List<VideoAndLituratureGenre>();
         libraryCode += "L." + (int)medium + "." + a_title[0];
     }
 
-    public List<string> authors;
-    public List<string> publishers;
-    public List<string> illustrators;
+    public List<Person> authors;
+    public List<Person> publishers;
+    public List<Person> illustrators;
     public List<VideoAndLituratureGenre> genre;
     public LituratureMedium medium { get; set; }
-    public string coverArtist { get; set; }
+    public Person coverArtist { get; set; }
     public string countryOfOrigin { get; set; }
     public string LCClass { get; set; }//Library of Congress Number
-    public string editor { get; set; }
+    public Person editor { get; set; }
     public string setIn { get; set; }
     public int pages { get; set; }
     public int OCLC { get; set; }//Online Central Library Center Number
@@ -35,9 +35,9 @@ public class Liturature : Entity
     {
         printProperties(this);
 
-        printList<string>(authors, "authors");
-        printList<string>(publishers, "publishers");
-        printList<string>(illustrators, "illustrators");
+        printPersonList(authors, "authors");
+        printPersonList(publishers, "publishers");
+        printPersonList(illustrators, "illustrators");
         printList<VideoAndLituratureGenre>(genre, "genre");
     }
 }

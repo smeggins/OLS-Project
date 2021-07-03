@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-enum VideoGameMode
+public enum VideoGameMode
 {
     singlePlayer,
     localMulitplayer,
@@ -15,21 +15,21 @@ enum VideoGameMode
     onlineVS
 }
 
-class VideoGame : Entity
+public class VideoGame : Entity
 {
     public VideoGame(string a_title, List<VideoGameMedium> a_platforms) : base(a_title) 
     {
         platforms = new List<VideoGameMedium>();
         genre = new List<VideoGameGenre>();
         modes = new List<VideoGameMode>();
-        headProgrammers = new List<string>();
+        headProgrammers = new List<Person>();
         developers = new List<string>();
-        publishers = new List<string>();
-        directors = new List<string>();
-        producers = new List<string>();
-        designers = new List<string>();
-        artists = new List<string>();
-        writers = new List<string>();
+        publishers = new List<Person>();
+        directors = new List<Person>();
+        producers = new List<Person>();
+        designers = new List<Person>();
+        artists = new List<Person>();
+        writers = new List<Person>();
         release = new List<string>();
         composer = new List<string>();
 
@@ -44,14 +44,14 @@ class VideoGame : Entity
     public List<VideoGameMedium> platforms;
     public List<VideoGameGenre> genre;
     public List<VideoGameMode> modes;
-    public List<string> headProgrammers;
+    public List<Person> headProgrammers;
     public List<string> developers;
-    public List<string> publishers;
-    public List<string> directors;
-    public List<string> producers;
-    public List<string> designers;
-    public List<string> artists;
-    public List<string> writers;
+    public List<Person> publishers;
+    public List<Person> directors;
+    public List<Person> producers;
+    public List<Person> designers;
+    public List<Person> artists;
+    public List<Person> writers;
     public List<string> release;
     public List<string> composer;
     public string series { get; set; }
@@ -60,13 +60,13 @@ class VideoGame : Entity
     {
         printProperties(this);
 
-        printList<string>(headProgrammers, "headProgrammers");
+        printPersonList(headProgrammers, "headProgrammers");
+        printPersonList(publishers, "publishers");
+        printPersonList(producers, "producers");
+        printPersonList(directors, "directors");
+        printPersonList(artists, "artists");
+        printPersonList(writers, "writers");
         printList<string>(developers, "developers");
-        printList<string>(publishers, "publishers");
-        printList<string>(producers, "producers");
-        printList<string>(directors, "directors");
-        printList<string>(artists, "artists");
-        printList<string>(writers, "writers");
         printList<string>(release, "release");
         printList<string>(composer, "composer");
         printList<VideoGameMedium>(platforms, "platforms");

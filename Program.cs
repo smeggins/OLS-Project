@@ -12,8 +12,11 @@ namespace OLS
     {
         static void Main(string[] args)
         {
+            Person newPerson;
+
             Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
-            theHobbit.authors.Add("JRR. Tolken");
+            newPerson = new Person("JRR", "Tolken");
+            theHobbit.authors.Add(newPerson);
             theHobbit.genre.Add(VideoAndLituratureGenre.Fantasy);
             theHobbit.countryOfOrigin = "canada";
             theHobbit.pages = 242;
@@ -26,12 +29,12 @@ namespace OLS
             mediumList.Add(VideoGameMedium.XboxOne);
 
             VideoGame seaOfThieves = new VideoGame("Sea Of Thieves", mediumList);
-            seaOfThieves.publishers.Add("Microsoft");
+            seaOfThieves.publishers.Add(newPerson);
             seaOfThieves.developers.Add("Rare");
             seaOfThieves.print();
 
-            List<string> meh = seaOfThieves.publishers;
-            meh.Add("jim bob");
+            List<Person> meh = seaOfThieves.publishers;
+            meh.Add(newPerson);
 
             //seaOfThieves.update(a_publishers:meh);
 
@@ -44,7 +47,7 @@ namespace OLS
 
             Video Alien = new Video("Alien", mediumListB);
             Alien.country = "America";
-            Alien.director = "Ridley Scott";
+            Alien.director = newPerson;
             Alien.print();
 
             Console.WriteLine("\n\n");
@@ -53,30 +56,30 @@ namespace OLS
             mediumListC.Add(AudioMedium.CD);
             mediumListC.Add(AudioMedium.Digital);
 
-            Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", mediumListC);
-            NAVUZIMETRO.artists.Add("Nav");
-            NAVUZIMETRO.artists.Add("Metro Boomin");
-            NAVUZIMETRO.featuredArtists.Add("Lil Uzi Vert");
-            NAVUZIMETRO.producers.Add("Nav");
-            NAVUZIMETRO.producers.Add("Metro Boomin");
-            NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
-            NAVUZIMETRO.print();
+            //Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", mediumListC);
+            //NAVUZIMETRO.artists.Add("Nav");
+            //NAVUZIMETRO.artists.Add("Metro Boomin");
+            //NAVUZIMETRO.featuredArtists.Add("Lil Uzi Vert");
+            //NAVUZIMETRO.producers.Add("Nav");
+            //NAVUZIMETRO.producers.Add("Metro Boomin");
+            //NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
+            //NAVUZIMETRO.print();
 
-            User Abbe = new User("Abbe Azale", 11111);
-            Abbe.printInfo();
-
-
-            Cart guysCart = new Cart("Abbe's Cart");
-
-            guysCart.addItem("Alien");
-            guysCart.addItem("Sea Of Thieves");
-
-            guysCart.printCart();
+            //User Abbe = new User("Abbe Azale", 11111);
+            //Abbe.printInfo();
 
 
-            guysCart.removeItem("Alien");
-            Console.WriteLine("after deleting....");
-            guysCart.printCart();
+            //Cart guysCart = new Cart("Abbe's Cart");
+
+            //guysCart.addItem("Alien");
+            //guysCart.addItem("Sea Of Thieves");
+
+            //guysCart.printCart();
+
+
+            //guysCart.removeItem("Alien");
+            //Console.WriteLine("after deleting....");
+            //guysCart.printCart();
 
             //TestcodeShelf.test();
         }

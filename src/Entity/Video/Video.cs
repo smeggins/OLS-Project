@@ -8,10 +8,10 @@ public class Video : Entity
 {
     public Video(string a_title, List<VideoMedium> a_mediums) : base(a_title) 
     {
-        actors = new List<string>();
-        stars = new List<string>();
-        writers = new List<string>();
-        producers = new List<string>();
+        actors = new List<Person>();
+        stars = new List<Person>();
+        writers = new List<Person>();
+        producers = new List<Person>();
         mediums = new List<VideoMedium>();
         genre = new List<VideoAndLituratureGenre>();
 
@@ -23,15 +23,15 @@ public class Video : Entity
         libraryCode += "V";
     }
 
-    public List<string> actors;
-    public List<string> stars;
-    public List<string> writers;
-    public List<string> producers;
+    public List<Person> actors;
+    public List<Person> stars;
+    public List<Person> writers;
+    public List<Person> producers;
     public List<VideoMedium> mediums;
     public List<VideoAndLituratureGenre> genre;
-    public string cinematogrophy { get; set; }
-    public string distributer { get; set; }
-    public string director { get; set; }
+    public Person cinematogrophy { get; set; }
+    public Person distributer { get; set; }
+    public Person director { get; set; }
     public string country { get; set; }
     public string editer { get; set; }
     public string music { get; set; }
@@ -44,10 +44,10 @@ public class Video : Entity
     {
         printProperties(this);
 
-        printList<string>(actors, "actors");
-        printList<string>(stars, "stars");
-        printList<string>(writers, "writers");
-        printList<string>(producers, "producers");
+        printPersonList(actors, "actors");
+        printPersonList(stars, "stars");
+        printPersonList(writers, "writers");
+        printPersonList(producers, "producers");
         printList<VideoMedium>(mediums, "mediums");
         printList<VideoAndLituratureGenre>(genre, "genre");
     }

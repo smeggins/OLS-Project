@@ -12,13 +12,13 @@ class TestcodeShelf
 
         //CREATE A BOOK
         Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
-        theHobbit.authors.Add("JRR. Tolken");
+        //theHobbit.authors.Add("JRR. Tolken");
         theHobbit.genre.Add(VideoAndLituratureGenre.Fantasy);
         theHobbit.countryOfOrigin = "canada";
         theHobbit.pages = 242;
 
         Liturature theSecret = new Liturature("The Secret", LituratureMedium.Book);
-        theSecret.authors.Add("JRR. Tolken");
+        //theSecret.authors.Add("JRR. Tolken");
         theSecret.genre.Add(VideoAndLituratureGenre.Fantasy);
         theSecret.countryOfOrigin = "canada";
         theSecret.pages = 242;
@@ -29,11 +29,11 @@ class TestcodeShelf
         mediumList.Add(VideoGameMedium.XboxOne);
 
         VideoGame seaOfThieves = new VideoGame("Sea Of Thieves", mediumList);
-        seaOfThieves.publishers.Add("Microsoft");
+        //seaOfThieves.publishers.Add("Microsoft");
         seaOfThieves.developers.Add("Rare");
 
         VideoGame doom = new VideoGame("Doom", mediumList);
-        doom.publishers.Add("Microsoft");
+        //doom.publishers.Add("Microsoft");
         doom.developers.Add("Rare");
 
         //CREATE VIDEO
@@ -43,38 +43,38 @@ class TestcodeShelf
 
         Video alien = new Video("Alien", mediumListB);
         alien.country = "America";
-        alien.director = "Ridley Scott";
+        //alien.director = "Ridley Scott";
 
         Video theAdamsFamily = new Video("The Adams Family", mediumListB);
         theAdamsFamily.country = "America";
-        theAdamsFamily.director = "Ridley Scott";
+        //theAdamsFamily.director = "Ridley Scott";
 
         //CREATE AUDIO
         List<AudioMedium> mediumListC = new List<AudioMedium>();
         mediumListC.Add(AudioMedium.CD);
         mediumListC.Add(AudioMedium.Digital);
 
-        Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", mediumListC);
-        NAVUZIMETRO.artists.Add("Nav");
-        NAVUZIMETRO.artists.Add("Metro Boomin");
-        NAVUZIMETRO.featuredArtists.Add("Lil Uzi Vert");
-        NAVUZIMETRO.producers.Add("Nav");
-        NAVUZIMETRO.producers.Add("Metro Boomin");
-        NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
+        //Audio NAVUZIMETRO = new Audio("NAVUZIMETRO#PT2", mediumListC);
+        //NAVUZIMETRO.artists.Add("Nav");
+        //NAVUZIMETRO.artists.Add("Metro Boomin");
+        //NAVUZIMETRO.featuredArtists.Add("Lil Uzi Vert");
+        //NAVUZIMETRO.producers.Add("Nav");
+        //NAVUZIMETRO.producers.Add("Metro Boomin");
+        //NAVUZIMETRO.genre.Add(AudioGenre.HipHop);
 
-        Audio finnegansWake = new Audio("Finnegans Wake", mediumListC);
-        finnegansWake.artists.Add("Nav");
-        finnegansWake.artists.Add("Metro Boomin");
-        finnegansWake.featuredArtists.Add("Lil Uzi Vert");
-        finnegansWake.producers.Add("Nav");
-        finnegansWake.producers.Add("Metro Boomin");
-        finnegansWake.genre.Add(AudioGenre.HipHop);
+        //Audio finnegansWake = new Audio("Finnegans Wake", mediumListC);
+        //finnegansWake.artists.Add("Nav");
+        //finnegansWake.artists.Add("Metro Boomin");
+        //finnegansWake.featuredArtists.Add("Lil Uzi Vert");
+        //finnegansWake.producers.Add("Nav");
+        //finnegansWake.producers.Add("Metro Boomin");
+        //finnegansWake.genre.Add(AudioGenre.HipHop);
 
         theShelf.add(entityTypes.Video, alien);
         theShelf.add(entityTypes.Video, theAdamsFamily);
 
-        theShelf.add(entityTypes.Audio, NAVUZIMETRO);
-        theShelf.add(entityTypes.Audio, finnegansWake);
+        //theShelf.add(entityTypes.Audio, NAVUZIMETRO);
+        //theShelf.add(entityTypes.Audio, finnegansWake);
 
         theShelf.add(entityTypes.VideoGame, seaOfThieves);
         theShelf.add(entityTypes.VideoGame, doom);
@@ -93,13 +93,13 @@ class TestcodeShelf
 
         //Test adding via list
         Liturature theSwordOfTruth = new Liturature("The Sword Of Truth", LituratureMedium.Book);
-        theSwordOfTruth.authors.Add("JRR. Tolken");
+        //theSwordOfTruth.authors.Add("JRR. Tolken");
         theSwordOfTruth.genre.Add(VideoAndLituratureGenre.Fantasy);
         theSwordOfTruth.countryOfOrigin = "canada";
         theSwordOfTruth.pages = 242;
 
         Liturature brawk = new Liturature("Brawk", LituratureMedium.Book);
-        brawk.authors.Add("JRR. Tolken");
+        //brawk.authors.Add("JRR. Tolken");
         brawk.genre.Add(VideoAndLituratureGenre.Fantasy);
         brawk.countryOfOrigin = "canada";
         brawk.pages = 242;
