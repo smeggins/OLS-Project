@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OLS.src;
 
 enum entityTypes
 {
@@ -56,7 +57,7 @@ class Shelf
         return -1;
     }
 
-    public void add(entityTypes type, List<Entity> list)
+    public string add(entityTypes type, List<Entity> list)
     {
         for (int i = 0; i < list.Count(); i++)
         {
@@ -65,13 +66,15 @@ class Shelf
             }
             else
             {
-                Console.WriteLine(list[i].title + "already added. try addInventory() to add more items " +
-                    "to the stock, or update() to update an items information");
+                return list[i].title + "already added. try addInventory() to add more items " +
+                    "to the stock, or update() to update an items information";
             }
         }
+
+        return "Your item has been added!";
     }
 
-    public void add(entityTypes type, Entity item)
+    public string add(entityTypes type, Entity item)
     {
         if (search(type, searchParam.libraryCode, item.libraryCode) == -1)
         {
@@ -79,12 +82,14 @@ class Shelf
         }
         else
         {
-            Console.WriteLine(item.title + "already added. try addInventory() to add more copies " +
-                "to the item.");
+            return item.title + "already added. try addInventory() to add more copies " +
+                "to the item.";
         }
+
+        return "Your item has been added";
     }
 
-    public void addInventory(entityTypes type, string title, int amount)
+    public string addInventory(entityTypes type, string title, int amount)
     {
         int itemindex = search(type, searchParam.title, title);
         if (itemindex != -1)
@@ -94,39 +99,50 @@ class Shelf
         }
         else
         {
-            Console.WriteLine(title + " has not been added yet.");
-        }        
+            return title + " has not been added yet.";
+        }
+
+        return title + " has been added!";
     }
 
-    public void removeInventory(entityTypes type, string title, int amount)
+    public string removeInventory(entityTypes type, string title, int amount)
     {
         int itemindex = search(type, searchParam.title, title);
         if (itemindex != -1)
         {
             LibraryShelf[type][itemindex].copiesTotal -= amount;
             LibraryShelf[type][itemindex].copiesAvailable -= amount;
+
+            return "library Code search: The index of the sword of truth book is: " + title;
         }
         else
         {
-            Console.WriteLine(title + " has not been added yet.");
+            return title + " has not been added yet.";
         }
+
+
+        //return "library Code search: The index of the sword of truth book is: " + title;
+
+
     }
     // delete item
-    public void delete(entityTypes type, searchParam theSearchParam, string identifier)
+    public string delete(entityTypes type, searchParam theSearchParam, string identifier)
     {
         int itemIndex = search(type, theSearchParam, identifier);
         if (itemIndex != -1)
         {
             LibraryShelf[type].RemoveAt(itemIndex);
-            Console.WriteLine(identifier + " Deleted.");
+            return identifier + " Deleted.";
         }
         else
         {
-            Console.WriteLine("Delete failed, item not found.");
+           return "Delete failed, item not found.";
         }
+
+
     }
 
-    public void delete(entityTypes type)
+    public string delete(entityTypes type)
     {
         Console.WriteLine("You are about to delete the the " + type + " category and all items containd within.");
         Console.WriteLine("Are you sure you want to delete " + type + ": 'Y/N'");
@@ -150,23 +166,26 @@ class Shelf
                 Console.WriteLine("'Y' to delete " + type + " or 'N' to take no action");
             }
         }
+
+        return "Item deleted";
     }
 
     // return details of specific item
-    public void read(entityTypes type, string title)
+    public string read(entityTypes type, string title)
     {
         int itemindex = search(type, searchParam.title, title);
         if (itemindex != -1)
         {
-            LibraryShelf[type][itemindex].print();
+            return LibraryShelf[type][itemindex].ToString();
+
         }
         else
         {
-            Console.WriteLine(title + " Could not be found.");
+            return title + " Could not be found." ;
         }
     }
 
-    public void updateItem(entityTypes type, string title)
+    public string updateItem(entityTypes type, string title)
     {
         int itemindex = search(type, searchParam.title, title);
         string newTitle = "";
@@ -177,10 +196,11 @@ class Shelf
             item = LibraryShelf[type][itemindex].title ;
             newTitle = Console.ReadLine();
             item = newTitle;
+            return LibraryShelf[type][itemindex].title + "has updated to " + newTitle;
         }
         else
         {
-            Console.WriteLine(title + " Could not be found. Please enter a valid title");
+            return title + " Could not be found. Please enter a valid title";
         }
 
     } 

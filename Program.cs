@@ -12,7 +12,7 @@ namespace OLS
     {
         static void Main(string[] args)
         {
-            Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
+            /*Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
             theHobbit.authors.Add("JRR. Tolken");
             theHobbit.genre.Add(VideoAndLituratureGenre.Fantasy);
             theHobbit.countryOfOrigin = "canada";
@@ -37,6 +37,11 @@ namespace OLS
 
             Console.WriteLine("\n\n");
 
+            /// <summery>
+            /// 
+            /// 
+            /// 
+            /// </summery>
 
             List<VideoMedium> mediumListB = new List<VideoMedium>();
             mediumListB.Add(VideoMedium.Blueray);
@@ -76,9 +81,11 @@ namespace OLS
 
             guysCart.removeItem("Alien");
             Console.WriteLine("after deleting....");
-            guysCart.printCart();
+            guysCart.printCart(); */
 
-            //TestcodeShelf.test();
+            TestcodeShelf.test();
+
+            
         }
     }
 }

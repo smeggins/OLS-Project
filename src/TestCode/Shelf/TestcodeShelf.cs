@@ -111,27 +111,31 @@ class TestcodeShelf
         //Adding via list
         libraryShelf.add(entityTypes.Liturature, testList);
 
+        
+        
         //Add Inventory
-        int bookIndex = libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "The Sword Of Truth");
-        Console.WriteLine("number of sword of truth books before add inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
+        
+
+        //int bookIndex = libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "The Sword Of Truth");
+        //Console.WriteLine("number of sword of truth books before add inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
         libraryShelf.addInventory(entityTypes.Liturature, "The Sword Of Truth", 2);
-        Console.WriteLine("number of sword of truth books after add inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
+        //Console.WriteLine("number of sword of truth books after add inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
 
         //remove Inventory
         libraryShelf.removeInventory(entityTypes.Liturature, "The Sword Of Truth", 1);
-        Console.WriteLine("number of sword of truth books after remove inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
+        //Console.WriteLine("number of sword of truth books after remove inventory: " + libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].copiesTotal);
         Console.WriteLine("\n\n");
 
         //Search
-        bookIndex = libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "The Sword Of Truth");
-        Console.WriteLine("title search: The index of the sword of truth book is: " + bookIndex);
-        string libraryCode = libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].libraryCode;
-        Console.WriteLine("library Code search: The index of the sword of truth book is: " + libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.libraryCode, libraryCode));
-        Console.WriteLine("searching for a book that doesn't exist: " + libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "JIM JAM"));
+        libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "The Sword Of Truth");
+        //Console.WriteLine("title search: The index of the sword of truth book is: " + bookIndex);
+        //string libraryCode = libraryShelf.LibraryShelf[entityTypes.Liturature][bookIndex].libraryCode;
+        //Console.WriteLine("library Code search: The index of the sword of truth book is: " + libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.libraryCode, libraryCode));
+        //Console.WriteLine("searching for a book that doesn't exist: " + libraryShelf.search(entityTypes.Liturature, Shelf.searchParam.title, "JIM JAM"));
         Console.WriteLine("\n\n");
 
         //Read
-        Console.WriteLine("reading the book info from shelf:\n");
+        //Console.WriteLine("reading the book info from shelf:\n");
         libraryShelf.read(entityTypes.Liturature, "The Sword Of Truth");
         
 
