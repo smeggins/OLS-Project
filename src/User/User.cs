@@ -9,6 +9,7 @@ namespace OLS.src.User
     public class User 
     {
         public string FullName { get; set; }
+        //TODO make static
         public int UserNumber = 0;
         private Cart cart;
 
