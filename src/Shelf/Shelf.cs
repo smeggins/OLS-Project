@@ -176,8 +176,5 @@ public class Shelf
         {
             Console.WriteLine(title + " Could not be found. Please enter a valid title");
         }
-
     } 
-
-
 }

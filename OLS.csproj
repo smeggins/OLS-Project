@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="OLSTest\**" />
+    <EmbeddedResource Remove="OLSTest\**" />
+    <None Remove="OLSTest\**" />
+  </ItemGroup>
+
 </Project>
