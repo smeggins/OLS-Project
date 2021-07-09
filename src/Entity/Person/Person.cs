@@ -25,65 +25,66 @@ public class Person
         ID = "" + firstName[0] + lastName[0] + numberOfPeople;
     }
 
-    public void addProject(Entity item, Format format)
+    public string addProject(Entity item, Format format)
     {
-        if (format == Format.Audio)
-        {
-            Audio newItem = (Audio)item;
-            this.audioProjects.Add(newItem);
-        }
-        else if (format == Format.Liturature)
-        {
-            Liturature newItem = (Liturature)item;
-            this.literatureProjects.Add(newItem);
-        }
-        else if (format == Format.Video)
-        {
-            Video newItem = (Video)item;
-            this.videoProjects.Add(newItem);
-        }
-        else if (format == Format.VideoGame)
-        {
-            VideoGame newItem = (VideoGame)item;
-            this.videoGameProjects.Add(newItem);
-        }
-    }
+        string successMsg = "Item Sucessfully Added";
+        string failureMsg = "Item NOT Added, please check that format and item type match and try again...";
 
-    public void addAudio(List<Entity> items, Format format)
-    {
         if (format == Format.Audio)
         {
-            foreach (var item in items)
+            try
             {
                 Audio newItem = (Audio)item;
                 this.audioProjects.Add(newItem);
+                return successMsg;
+            }
+            catch 
+            {
+                return failureMsg;
             }
         }
         else if (format == Format.Liturature)
         {
-            foreach (var item in items)
+            try
             {
                 Liturature newItem = (Liturature)item;
                 this.literatureProjects.Add(newItem);
+                return successMsg;
+            }
+            catch
+            {
+                return failureMsg;
             }
         }
         else if (format == Format.Video)
         {
-            
-            foreach (var item in items)
+            try
             {
                 Video newItem = (Video)item;
                 this.videoProjects.Add(newItem);
+                return successMsg;
+            }
+            catch
+            {
+                return failureMsg;
             }
         }
         else if (format == Format.VideoGame)
         {
-            
-            foreach (var item in items)
+            try
             {
                 VideoGame newItem = (VideoGame)item;
                 this.videoGameProjects.Add(newItem);
+                return successMsg;
             }
+            catch
+            {
+                return failureMsg;
+            }
+        }
+        else
+        {
+            return "trying to add a format that has not been initialized yet";
         }
     }
 

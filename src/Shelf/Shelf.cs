@@ -4,24 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-enum entityTypes
+public class Shelf
 {
-    Audio,
-    Liturature,
-    Video,
-    VideoGame
-}
-class Shelf
-{
+    public Dictionary<Format, List<Entity>> LibraryShelf;
+    public Dictionary<string, List<Entity>> titleSearchContainer;
     public Shelf() {
-        LibraryShelf = new Dictionary<entityTypes, List<Entity>>();
-        LibraryShelf.Add(entityTypes.Liturature, new List<Entity>());
-        LibraryShelf.Add(entityTypes.Audio, new List<Entity>());
-        LibraryShelf.Add(entityTypes.VideoGame, new List<Entity>());
-        LibraryShelf.Add(entityTypes.Video, new List<Entity>());
+        LibraryShelf = new Dictionary<Format, List<Entity>>();
+        LibraryShelf.Add(Format.Liturature, new List<Entity>());
+        LibraryShelf.Add(Format.Audio, new List<Entity>());
+        LibraryShelf.Add(Format.VideoGame, new List<Entity>());
+        LibraryShelf.Add(Format.Video, new List<Entity>());
     }
 
-    public Dictionary<entityTypes, List<Entity>> LibraryShelf;
+    
 
     public enum searchParam
     {
@@ -29,7 +24,7 @@ class Shelf
         title
     }
 
-    public int search(entityTypes type, searchParam theSearchParam, string identifier)
+    public int search(Format type, searchParam theSearchParam, string identifier)
     {
 
         if (theSearchParam == searchParam.libraryCode)
@@ -41,8 +36,7 @@ class Shelf
                     return i;
                 }
             } 
-                
-            }
+        }
         else if (theSearchParam == searchParam.title)
         {
             for (int i = 0; i < LibraryShelf[type].Count(); i++)
@@ -56,7 +50,7 @@ class Shelf
         return -1;
     }
 
-    public void add(entityTypes type, List<Entity> list)
+    public void add(Format type, List<Entity> list)
     {
         for (int i = 0; i < list.Count(); i++)
         {
@@ -71,7 +65,7 @@ class Shelf
         }
     }
 
-    public void add(entityTypes type, Entity item)
+    public void add(Format type, Entity item)
     {
         if (search(type, searchParam.libraryCode, item.libraryCode) == -1)
         {
@@ -84,7 +78,7 @@ class Shelf
         }
     }
 
-    public void addInventory(entityTypes type, string title, int amount)
+    public void addInventory(Format type, string title, int amount)
     {
         int itemindex = search(type, searchParam.title, title);
         if (itemindex != -1)
@@ -98,7 +92,7 @@ class Shelf
         }        
     }
 
-    public void removeInventory(entityTypes type, string title, int amount)
+    public void removeInventory(Format type, string title, int amount)
     {
         int itemindex = search(type, searchParam.title, title);
         if (itemindex != -1)
@@ -112,7 +106,7 @@ class Shelf
         }
     }
     // delete item
-    public void delete(entityTypes type, searchParam theSearchParam, string identifier)
+    public void delete(Format type, searchParam theSearchParam, string identifier)
     {
         int itemIndex = search(type, theSearchParam, identifier);
         if (itemIndex != -1)
@@ -126,7 +120,7 @@ class Shelf
         }
     }
 
-    public void delete(entityTypes type)
+    public void delete(Format type)
     {
         Console.WriteLine("You are about to delete the the " + type + " category and all items containd within.");
         Console.WriteLine("Are you sure you want to delete " + type + ": 'Y/N'");
@@ -153,7 +147,7 @@ class Shelf
     }
 
     // return details of specific item
-    public void read(entityTypes type, string title)
+    public void read(Format type, string title)
     {
         int itemindex = search(type, searchParam.title, title);
         if (itemindex != -1)
@@ -166,7 +160,7 @@ class Shelf
         }
     }
 
-    public void updateItem(entityTypes type, string title)
+    public void updateItem(Format type, string title)
     {
         int itemindex = search(type, searchParam.title, title);
         string newTitle = "";
