@@ -14,14 +14,14 @@ public class Liturature : Entity
         publishers = new List<Person>();
         illustrators = new List<Person>();
         medium = a_medium;
-        genre = new List<VideoAndLituratureGenre>();
+        genre = new List<LituratureGenre>();
         libraryCode += "L." + (int)medium + "." + a_title[0];
     }
 
     public List<Person> authors;
     public List<Person> publishers;
     public List<Person> illustrators;
-    public List<VideoAndLituratureGenre> genre;
+    public List<LituratureGenre> genre;
     public LituratureMedium medium { get; set; }
     public Person coverArtist { get; set; }
     public string countryOfOrigin { get; set; }
@@ -38,6 +38,6 @@ public class Liturature : Entity
         printPersonList(authors, "authors");
         printPersonList(publishers, "publishers");
         printPersonList(illustrators, "illustrators");
-        printList<VideoAndLituratureGenre>(genre, "genre");
+        printList<LituratureGenre>(genre, "genre");
     }
 }

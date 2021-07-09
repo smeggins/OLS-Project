@@ -10,6 +10,7 @@ public class Person
 {
     public string firstName { get; set; }
     public string lastName { get; set; }
+    public string fullName { get; set; }
     public string ID { get; set; }
     public List<Audio> audioProjects;
     public List<Liturature> literatureProjects;
@@ -23,6 +24,7 @@ public class Person
         lastName = a_lastName;
         ++numberOfPeople;
         ID = "" + firstName[0] + lastName[0] + numberOfPeople;
+        fullName = firstName + " " + lastName;
     }
 
     public string addProject(Entity item, Format format)

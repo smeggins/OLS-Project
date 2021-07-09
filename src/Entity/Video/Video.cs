@@ -12,8 +12,9 @@ public class Video : Entity
         stars = new List<Person>();
         writers = new List<Person>();
         producers = new List<Person>();
+        directors = new List<Person>();
         mediums = new List<VideoMedium>();
-        genre = new List<VideoAndLituratureGenre>();
+        genre = new List<VideoGenre>();
 
         libraryCode += a_title[0] + ".";
         foreach (VideoMedium item in a_mediums)
@@ -27,11 +28,12 @@ public class Video : Entity
     public List<Person> stars;
     public List<Person> writers;
     public List<Person> producers;
+    public List<Person> directors;
     public List<VideoMedium> mediums;
-    public List<VideoAndLituratureGenre> genre;
+    public List<VideoGenre> genre;
     public Person cinematogrophy { get; set; }
     public Person distributer { get; set; }
-    public Person director { get; set; }
+    
     public string country { get; set; }
     public string editer { get; set; }
     public string music { get; set; }
@@ -48,7 +50,8 @@ public class Video : Entity
         printPersonList(stars, "stars");
         printPersonList(writers, "writers");
         printPersonList(producers, "producers");
+        printPersonList(directors, "directors");
         printList<VideoMedium>(mediums, "mediums");
-        printList<VideoAndLituratureGenre>(genre, "genre");
+        printList<VideoGenre>(genre, "genre");
     }
 }

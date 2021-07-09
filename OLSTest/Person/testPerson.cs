@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class TestCodePerson
+public class testPerson
 {
-    Person testPerson;
-    public TestCodePerson()
+    Person person;
+    public testPerson()
     {
-        testPerson = new Person("Jim", "Jam");
+        person = new Person("Jim", "Jam");
     }
 
     public void test(Entity item, Format format)
     {
-        testPerson.addProject(item, format);
+        person.addProject(item, format);
     }
 }

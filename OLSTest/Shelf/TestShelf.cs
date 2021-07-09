@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class TestcodeShelf
+class TestShelf
 {
     public static Shelf createTestShelf()
     {
@@ -17,13 +17,13 @@ class TestcodeShelf
         //CREATE A BOOK
         Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
         theHobbit.authors.Add(newPerson);
-        theHobbit.genre.Add(VideoAndLituratureGenre.Fantasy);
+        theHobbit.genre.Add(LituratureGenre.Fantasy);
         theHobbit.countryOfOrigin = "canada";
         theHobbit.pages = 242;
 
         Liturature theSecret = new Liturature("The Secret", LituratureMedium.Book);
         theSecret.authors.Add(newPerson);
-        theSecret.genre.Add(VideoAndLituratureGenre.Fantasy);
+        theSecret.genre.Add(LituratureGenre.Fantasy);
         theSecret.countryOfOrigin = "canada";
         theSecret.pages = 242;
 
@@ -35,6 +35,7 @@ class TestcodeShelf
         VideoGame seaOfThieves = new VideoGame("Sea Of Thieves", mediumList);
         seaOfThieves.publishers.Add(newPerson);
         seaOfThieves.developers.Add("Rare");
+        seaOfThieves.genre.Add(VideoGameGenre.Horror);
 
         VideoGame doom = new VideoGame("Doom", mediumList);
         doom.publishers.Add(newPerson);
@@ -47,11 +48,11 @@ class TestcodeShelf
 
         Video alien = new Video("Alien", mediumListB);
         alien.country = "America";
-        alien.director = newPerson;
+        alien.directors.Add(newPerson);
 
         Video theAdamsFamily = new Video("The Adams Family", mediumListB);
         theAdamsFamily.country = "America";
-        theAdamsFamily.director = newPerson;
+        theAdamsFamily.directors.Add(newPerson);
 
         //CREATE AUDIO
         List<AudioMedium> mediumListC = new List<AudioMedium>();
@@ -99,13 +100,13 @@ class TestcodeShelf
         //Test adding via list
         Liturature theSwordOfTruth = new Liturature("The Sword Of Truth", LituratureMedium.Book);
         theSwordOfTruth.authors.Add(newPerson);
-        theSwordOfTruth.genre.Add(VideoAndLituratureGenre.Fantasy);
+        theSwordOfTruth.genre.Add(LituratureGenre.Fantasy);
         theSwordOfTruth.countryOfOrigin = "canada";
         theSwordOfTruth.pages = 242;
 
         Liturature brawk = new Liturature("Brawk", LituratureMedium.Book);
         brawk.authors.Add(newPerson);
-        brawk.genre.Add(VideoAndLituratureGenre.Fantasy);
+        brawk.genre.Add(LituratureGenre.Fantasy);
         brawk.countryOfOrigin = "canada";
         brawk.pages = 242;
 
