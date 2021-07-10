@@ -126,10 +126,9 @@ public static class SearchRecepticles
             foreach (var item in inputList)
             {
                 Audio castItem = item as Audio;
-                if (castItem != null) { 
-                
+                if (castItem != null) {
+                    checkKeyAddValue(outputDic, castItem);
                 }
-                checkKeyAddValue(outputDic, castItem);
             }
         }
 
@@ -138,10 +137,9 @@ public static class SearchRecepticles
             foreach (var item in inputList)
             {
                 Liturature castItem = item as Liturature;
-                if (castItem != null) { 
-                
+                if (castItem != null) {
+                    checkKeyAddValue(outputDic, castItem);
                 }
-                checkKeyAddValue(outputDic, castItem);
             }
         }
 
@@ -150,10 +148,9 @@ public static class SearchRecepticles
             foreach (var item in inputList)
             {
                 Video castItem = item as Video;
-                if (castItem != null) { 
-                
+                if (castItem != null) {
+                    checkKeyAddValue(outputDic, castItem);
                 }
-                checkKeyAddValue(outputDic, castItem);
             }
         }
 
@@ -161,10 +158,10 @@ public static class SearchRecepticles
         {
             foreach (var item in inputList)
             {
-                if (castItem != null) { 
-                
+                VideoGame castItem = item as VideoGame;
+                if (castItem != null) {
+                    checkKeyAddValue(outputDic, castItem);
                 }
-                checkKeyAddValue(outputDic, castItem);
             }
         }
 
