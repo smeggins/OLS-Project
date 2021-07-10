@@ -47,8 +47,9 @@ public static class TestSearch
         }
     }
 
-    public static void testcreatorNameSearch(Shelf shelf)
+    public static bool testcreatorNameSearch(Shelf shelf)
     {
+        int found = 0;
         SearchRecepticles.instantiateSearchDictionaries(shelf);
         List<Entity> videoResults = Search.searchByCreator(SearchRecepticles.video, "Jim Jam");
 
@@ -57,6 +58,10 @@ public static class TestSearch
         foreach (var item in videoResults)
         {
             Console.WriteLine(item.title);
+            if (item.title == "the Adams Family" || item.title == "Alien")
+            {
+                found++;
+            }
         }
 
         List<Entity> videoGameResults = Search.searchByCreator(SearchRecepticles.videoGame, "Rare");
@@ -66,6 +71,19 @@ public static class TestSearch
         foreach (var item in videoGameResults)
         {
             Console.WriteLine(item.title);
+            if (item.title == "Doom" || item.title == "Sea Of Thieves")
+            {
+                found++;
+            }
+        }
+
+        if (found == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

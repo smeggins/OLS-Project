@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 public static class SearchRecepticles
 {
+
     //Abbe
+    // String: Full Author name
+    // Entity: library item
     public static Dictionary<string, Entity> Lit;
+    // String: Full Artist name
+    // Entity: library item
     public static Dictionary<string, Entity> audio;
     public static IEnumerable<int> userNumbers; // need to initialize with a list or array of all user numbers
-
-    //Phil
+    
+    // String: developer studio name
+    // Entity: library item
     public static Dictionary<string, List<Entity>> videoGame = new Dictionary<string, List<Entity>>();
+    // String: full director name
+    // Entity: library item
     public static Dictionary<string, List<Entity>> video = new Dictionary<string, List<Entity>>();
 
     /// <summary>
@@ -117,7 +125,10 @@ public static class SearchRecepticles
         {
             foreach (var item in inputList)
             {
-                Audio castItem = (Audio)item;
+                Audio castItem = item as Audio;
+                if (castItem != null) { 
+                
+                }
                 checkKeyAddValue(outputDic, castItem);
             }
         }
@@ -126,7 +137,10 @@ public static class SearchRecepticles
         {
             foreach (var item in inputList)
             {
-                Liturature castItem = (Liturature)item;
+                Liturature castItem = item as Liturature;
+                if (castItem != null) { 
+                
+                }
                 checkKeyAddValue(outputDic, castItem);
             }
         }
@@ -135,7 +149,10 @@ public static class SearchRecepticles
         {
             foreach (var item in inputList)
             {
-                Video castItem = (Video)item;
+                Video castItem = item as Video;
+                if (castItem != null) { 
+                
+                }
                 checkKeyAddValue(outputDic, castItem);
             }
         }
@@ -144,7 +161,9 @@ public static class SearchRecepticles
         {
             foreach (var item in inputList)
             {
-                VideoGame castItem = (VideoGame)item;
+                if (castItem != null) { 
+                
+                }
                 checkKeyAddValue(outputDic, castItem);
             }
         }

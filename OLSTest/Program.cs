@@ -22,7 +22,7 @@ namespace OLSTest
             //    Console.WriteLine(item.title);
             //}
 
-            TestSearch.testcreatorNameSearch(libraryShelf);
+            Console.WriteLine( TestSearch.testcreatorNameSearch(libraryShelf));
         }
     }
 }
