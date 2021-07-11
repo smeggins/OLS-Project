@@ -6,8 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Library App\**" />
     <Compile Remove="OLSTest\**" />
+    <EmbeddedResource Remove="Library App\**" />
     <EmbeddedResource Remove="OLSTest\**" />
+    <None Remove="Library App\**" />
     <None Remove="OLSTest\**" />
   </ItemGroup>
 
