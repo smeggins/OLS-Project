@@ -110,21 +110,15 @@ public abstract class Entity
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (i != list.Count)
-                {
-                    workingString += list[i] + ", ";
-                }
-                else
+                if (i + 1 == list.Count)
                 {
                     workingString += list[i] + ".";
                 }
+                else
+                {
+                    workingString += list[i] + ", ";
+                }
             }
-            //foreach (var item in list)
-            //{
-            //    workingString += item + ", ";
-               
-            //    Console.WriteLine(item);
-            //}
             propertiesList.Add(workingString);
         }
         return propertiesList;
@@ -155,13 +149,13 @@ public abstract class Entity
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (i != list.Count)
+                if (i + 1 == list.Count)
                 {
-                    workingString += list[i].firstName + " " + list[i].lastName + ", ";
+                    workingString += list[i].firstName + " " + list[i].lastName + ".";
                 }
                 else
                 {
-                    workingString += list[i].firstName + " " + list[i].lastName + ".";
+                    workingString += list[i].firstName + " " + list[i].lastName + ", ";
                 }
             }
             personList.Add(workingString);

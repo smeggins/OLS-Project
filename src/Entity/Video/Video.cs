@@ -8,6 +8,13 @@ public class Video : Entity
 {
     public Video(string a_title, List<VideoMedium> a_mediums) : base(a_title) 
     {
+        libraryCode += a_title[0] + ".";
+        foreach (VideoMedium item in a_mediums)
+        {
+            libraryCode += (int)item + ".";
+        }
+        libraryCode += "V";
+
         actors = new List<Person>();
         stars = new List<Person>();
         writers = new List<Person>();
@@ -16,12 +23,7 @@ public class Video : Entity
         mediums = new List<VideoMedium>();
         genre = new List<VideoGenre>();
 
-        libraryCode += a_title[0] + ".";
-        foreach (VideoMedium item in a_mediums)
-        {
-            libraryCode += (int)item + ".";
-        }
-        libraryCode += "V";
+        
     }
 
     public List<Person> actors;
@@ -53,5 +55,22 @@ public class Video : Entity
         printPersonList(directors, "directors");
         printList<VideoMedium>(mediums, "mediums");
         printList<VideoGenre>(genre, "genre");
+    }
+
+    public List<String> GetValues()
+    {
+        List<String> values = new List<string>();
+
+        values.AddRange(returnProperties(this));
+
+        values.AddRange(returnPersonList(actors, "actors"));
+        values.AddRange(returnPersonList(stars, "stars"));
+        values.AddRange(returnPersonList(writers, "writers"));
+        values.AddRange(returnPersonList(producers, "producers"));
+        values.AddRange(returnPersonList(directors, "directors"));
+        values.AddRange(returnList<VideoMedium>(mediums, "mediums"));
+        values.AddRange(returnList<VideoGenre>(genre, "genre"));
+
+        return values;
     }
 }

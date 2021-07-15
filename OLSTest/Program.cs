@@ -32,7 +32,7 @@ namespace OLSTest
             // create an application class in a new project called library app
             // Try and use async versions of stream read and write!!!!!!
 
-            Shutdown.CloseApp("test.txt", libraryShelf);
+            Shutdown.CloseApp(libraryShelf, "audio.txt", "Video.txt", "videoGame.txt", "liturature.txt");
         }
     }
 }

@@ -73,4 +73,26 @@ public class VideoGame : Entity
         printList<VideoGameGenre>(genre, "genre");
         printList<VideoGameMode>(modes, "modes");
     }
+
+    public List<String> GetValues()
+    {
+        List<String> values = new List<string>();
+
+        values.AddRange(returnProperties(this));
+
+        values.AddRange(returnPersonList(headProgrammers, "headProgrammers"));
+        values.AddRange(returnPersonList(publishers, "publishers"));
+        values.AddRange(returnPersonList(producers, "producers"));
+        values.AddRange(returnPersonList(directors, "directors"));
+        values.AddRange(returnPersonList(artists, "artists"));
+        values.AddRange(returnPersonList(writers, "writers"));
+        values.AddRange(returnList<string>(developers, "developers"));
+        values.AddRange(returnList<string>(release, "release"));
+        values.AddRange(returnList<string>(composer, "composer"));
+        values.AddRange(returnList<VideoGameMedium>(platforms, "platforms"));
+        values.AddRange(returnList<VideoGameGenre>(genre, "genre")); 
+        values.AddRange(returnList<VideoGameMode>(modes, "modes"));
+
+        return values;
+    }
 }
