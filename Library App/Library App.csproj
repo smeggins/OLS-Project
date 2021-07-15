@@ -6,4 +6,8 @@
     <RootNamespace>Library_App</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.csproj" />
+  </ItemGroup>
+
 </Project>

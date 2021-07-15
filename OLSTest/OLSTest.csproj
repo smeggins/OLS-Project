@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Library App\Library App.csproj" />
     <ProjectReference Include="..\OLS.csproj" />
   </ItemGroup>
 

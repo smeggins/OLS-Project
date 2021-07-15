@@ -16,12 +16,27 @@ public class Shelf
         LibraryShelf.Add(Format.Video, new List<Entity>());
     }
 
-    
-
     public enum searchParam
     {
         libraryCode,
         title
+    }
+
+    public List<Audio> downCastAudio()
+    {
+        return LibraryShelf[Format.Audio].Cast<Audio>().ToList();
+    }
+    public List<Liturature> downCastLiturature()
+    {
+        return LibraryShelf[Format.Liturature].Cast<Liturature>().ToList();
+    }
+    public List<VideoGame> downCastVideoGame()
+    {
+        return LibraryShelf[Format.VideoGame].Cast<VideoGame>().ToList();
+    }
+    public List<Video> downCastVideo()
+    {
+        return LibraryShelf[Format.Video].Cast<Video>().ToList();
     }
 
     public int search(Format type, searchParam theSearchParam, string identifier)

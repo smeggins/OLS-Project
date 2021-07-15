@@ -54,6 +54,37 @@ public abstract class Entity
         }
     }
 
+    public List<String> returnProperties(Entity instatiatedEntity)
+    {
+        // iterates through all properties of class and prints them
+        // does not print Lists, handle those in child class
+        // requires using System.Reflection;
+        Type type = instatiatedEntity.GetType();
+        PropertyInfo[] properties = type.GetProperties();
+
+        List<String> propertiesList = new List<string>();
+        String workingString;
+
+        foreach (PropertyInfo property in properties)
+        {
+            var propertyValue = property.GetValue(instatiatedEntity, null);
+            if (propertyValue != null)
+            {
+                Type propertyType = propertyValue.GetType();
+
+                // used to handle default/empty entry
+                if (propertyType == "a".GetType() && propertyValue == "") { }
+                else if (propertyType == 1.GetType() && (int)propertyValue == 0) { }
+                else
+                {
+                    workingString = property.Name + " = " + propertyValue;
+                    propertiesList.Add(workingString);
+                }
+            }
+        }
+        return propertiesList;
+    }
+
     public void printList<T>(List<T> list, string Header)
     {
         if (list.Count() != 0)
@@ -65,6 +96,40 @@ public abstract class Entity
             }
         }
     }
+
+    public List<String> returnList<T>(List<T> list, string Header)
+    {
+        List<String> propertiesList = new List<string>();
+        String workingString;
+
+        if (list.Count() != 0)
+        {
+            workingString = Header + ":";
+            propertiesList.Add(workingString);
+            workingString = "";
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (i != list.Count)
+                {
+                    workingString += list[i] + ", ";
+                }
+                else
+                {
+                    workingString += list[i] + ".";
+                }
+            }
+            //foreach (var item in list)
+            //{
+            //    workingString += item + ", ";
+               
+            //    Console.WriteLine(item);
+            //}
+            propertiesList.Add(workingString);
+        }
+        return propertiesList;
+    }
+
     public void printPersonList(List<Person> list, string Header)
     {
         if (list.Count() != 0)
@@ -75,5 +140,32 @@ public abstract class Entity
                 Console.WriteLine(item.firstName + " " + item.lastName);
             }
         }
+    }
+
+    public List<String> returnPersonList(List<Person> list, string Header)
+    {
+        List<String> personList = new List<string>();
+        String workingString;
+
+        if (list.Count() != 0)
+        {
+            workingString = Header + ":";
+            personList.Add(workingString);
+            workingString = "";
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (i != list.Count)
+                {
+                    workingString += list[i].firstName + " " + list[i].lastName + ", ";
+                }
+                else
+                {
+                    workingString += list[i].firstName + " " + list[i].lastName + ".";
+                }
+            }
+            personList.Add(workingString);
+        }
+        return personList;
     }
 }

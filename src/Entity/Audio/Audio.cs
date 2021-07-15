@@ -48,6 +48,19 @@ public class Audio : Entity
 
     }
 
-    
+    public List<String> GetValues()
+    {
+        List<String> values = new List<string>();
+
+        values.AddRange(returnProperties(this));
+
+        values.AddRange(returnPersonList(artists, "artists"));
+        values.AddRange(returnPersonList(featuredArtists, "Featured Artists"));
+        values.AddRange(returnPersonList(producers, "Producers"));
+        values.AddRange(returnList<string>(Labels, "Labels"));
+        values.AddRange(returnList<AudioGenre>(genre, "Genre"));
+
+        return values;
+    }
 
 }

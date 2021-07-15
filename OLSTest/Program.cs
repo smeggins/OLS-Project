@@ -22,7 +22,7 @@ namespace OLSTest
             //    Console.WriteLine(item.title);
             //}
 
-            Console.WriteLine( TestSearch.testcreatorNameSearch(libraryShelf));
+            //Console.WriteLine( TestSearch.testcreatorNameSearch(libraryShelf));
 
             //TODO
             // Use filestream to write and read the list of items in your application
@@ -31,6 +31,8 @@ namespace OLSTest
 
             // create an application class in a new project called library app
             // Try and use async versions of stream read and write!!!!!!
+
+            Shutdown.CloseApp("test.txt", libraryShelf);
         }
     }
 }
