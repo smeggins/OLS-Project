@@ -81,6 +81,11 @@ public abstract class Entity
                     propertiesList.Add(workingString);
                 }
             }
+            else
+            {
+                workingString = property.Name + " = .";
+                propertiesList.Add(workingString);
+            }
         }
         return propertiesList;
     }
@@ -102,25 +107,28 @@ public abstract class Entity
         List<String> propertiesList = new List<string>();
         String workingString;
 
-        if (list.Count() != 0)
-        {
-            workingString = Header + ":";
-            propertiesList.Add(workingString);
-            workingString = "";
+        workingString = Header + ":";
+        propertiesList.Add(workingString);
+        workingString = "";
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (i + 1 == list.Count)
-                {
-                    workingString += list[i] + ".";
-                }
-                else
-                {
-                    workingString += list[i] + ", ";
-                }
-            }
-            propertiesList.Add(workingString);
+        if (list.Count() == 0)
+        {
+            workingString = ".";
         }
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (i + 1 == list.Count)
+            {
+                workingString += list[i] + ".";
+            }
+            else
+            {
+                workingString += list[i] + ", ";
+            }
+        }
+        propertiesList.Add(workingString);
+        
         return propertiesList;
     }
 
@@ -141,25 +149,27 @@ public abstract class Entity
         List<String> personList = new List<string>();
         String workingString;
 
-        if (list.Count() != 0)
+        
+        workingString = Header + ":";
+        personList.Add(workingString);
+        workingString = "";
+        if (list.Count() == 0)
         {
-            workingString = Header + ":";
-            personList.Add(workingString);
-            workingString = "";
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (i + 1 == list.Count)
-                {
-                    workingString += list[i].firstName + " " + list[i].lastName + ".";
-                }
-                else
-                {
-                    workingString += list[i].firstName + " " + list[i].lastName + ", ";
-                }
-            }
-            personList.Add(workingString);
+            workingString = ".";
         }
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (i + 1 == list.Count)
+            {
+                workingString += list[i].firstName + " " + list[i].lastName + ".";
+            }
+            else
+            {
+                workingString += list[i].firstName + " " + list[i].lastName + ", ";
+            }
+        }
+        personList.Add(workingString);
+        
         return personList;
     }
 }

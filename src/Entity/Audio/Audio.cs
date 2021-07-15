@@ -27,7 +27,6 @@ public class Audio : Entity
     public List<Person> artists;
     public List<Person> featuredArtists;
     public List<Person> producers;
-    public string songTitle { get; set; }
     public List<AudioGenre> genre;
     public List<AudioMedium> mediums;
     public List<string> Labels;
