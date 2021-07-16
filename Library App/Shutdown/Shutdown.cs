@@ -7,71 +7,74 @@ using System.IO;
 
 public static class Shutdown
 {
-    public static void CloseApp(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
+    /// <summary>
+    /// Writes bytes to stream
+    /// </summary>
+    /// <param name="s">The stream being written to your document</param>
+    /// <param name="Values">a list of string values. Get these values using the GetValues method on any libraryShelf format list</param>
+    public static void writeBytes(Stream s, List<String> Values)
+    {
+        foreach (String item in Values)
+        {
+            s.Write(Encoding.ASCII.GetBytes(item));
+            s.Write(Encoding.ASCII.GetBytes("\n"));
+        }
+        s.Write(Encoding.ASCII.GetBytes("\n//\n\n"));
+    }
+
+    /// <summary>
+    /// saves your shelf to a local document
+    /// </summary>
+    /// <param name="shelf">the shelf object for the app</param>
+    /// <param name="audioFileName">the document name you'll save your shelf to</param>
+    /// <param name="videoFileName">the document name you'll save your shelf to</param>
+    /// <param name="videoGameFileName">the document name you'll save your shelf to</param>
+    /// <param name="lituratureFileName">the document name you'll save your shelf to</param>
+    public static void saveShelfToDocument(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
     {
         using (Stream s = new FileStream(audioFileName, FileMode.Create))
         {
-            byte[] newLine = Encoding.ASCII.GetBytes("\n");
-            byte[] separationOfItemsLine = Encoding.ASCII.GetBytes("\n//\n\n");
-            foreach (Audio audioItem in shelf.downCastAudio()) {
-                foreach (String item in audioItem.GetValues())
-                {
-                    byte[] bytes = Encoding.ASCII.GetBytes(item);
-                    s.Write(bytes);
-                    s.Write(newLine);
-                }
-                s.Write(separationOfItemsLine);
+            foreach (Audio audioItem in shelf.downCastAudio())
+            {
+                writeBytes(s, audioItem.GetValues());
             }
         }
 
         using (Stream s = new FileStream(videoFileName, FileMode.Create))
         {
-            byte[] newLine = Encoding.ASCII.GetBytes("\n");
-            byte[] separationOfItemsLine = Encoding.ASCII.GetBytes("\n//\n\n");
             foreach (Video videoItem in shelf.downCastVideo())
             {
-                foreach (String item in videoItem.GetValues())
-                {
-                    byte[] bytes = Encoding.ASCII.GetBytes(item);
-                    s.Write(bytes);
-                    s.Write(newLine);
-                }
-                s.Write(separationOfItemsLine);
+                writeBytes(s, videoItem.GetValues());
             }
         }
 
         using (Stream s = new FileStream(videoGameFileName, FileMode.Create))
         {
-            byte[] newLine = Encoding.ASCII.GetBytes("\n");
-            byte[] separationOfItemsLine = Encoding.ASCII.GetBytes("\n//\n\n");
             foreach (VideoGame videoGameItem in shelf.downCastVideoGame())
             {
-                foreach (String item in videoGameItem.GetValues())
-                {
-                    byte[] bytes = Encoding.ASCII.GetBytes(item);
-                    s.Write(bytes);
-                    s.Write(newLine);
-                }
-                s.Write(separationOfItemsLine);
+                writeBytes(s, videoGameItem.GetValues());
             }
         }
 
         using (Stream s = new FileStream(lituratureFileName, FileMode.Create))
         {
-            byte[] newLine = Encoding.ASCII.GetBytes("\n");
-            byte[] separationOfItemsLine = Encoding.ASCII.GetBytes("\n//\n\n");
             foreach (Liturature lituratureItem in shelf.downCastLiturature())
             {
-                foreach (String item in lituratureItem.GetValues())
-                {
-                    byte[] bytes = Encoding.ASCII.GetBytes(item);
-                    s.Write(bytes);
-                    s.Write(newLine);
-                }
-                s.Write(separationOfItemsLine);
+                writeBytes(s, lituratureItem.GetValues());
             }
         }
+    }
 
-
+    /// <summary>
+    /// calls all necessary methods to close the app.
+    /// </summary>
+    /// <param name="shelf">the shelf object for the app</param>
+    /// <param name="audioFileName">the document name you'll save your shelf to</param>
+    /// <param name="videoFileName">the document name you'll save your shelf to</param>
+    /// <param name="videoGameFileName">the document name you'll save your shelf to</param>
+    /// <param name="lituratureFileName">the document name you'll save your shelf to</param>
+    public static void CloseApp(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
+    {
+        saveShelfToDocument(shelf, audioFileName, videoFileName, videoGameFileName, lituratureFileName);
     }
 }

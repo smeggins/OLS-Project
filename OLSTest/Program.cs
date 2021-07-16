@@ -10,29 +10,9 @@ namespace OLSTest
     {
         static void Main(string[] args)
         {
-            Shelf libraryShelf = TestShelf.createTestShelf();
+            //Shelf libraryShelf = TestShelf.createTestShelf();
 
-            //TestSearch.testGenreSearch(libraryShelf);
-
-            //SearchRecepticles.instantiateSearchDictionaries(libraryShelf);
-            //List<Entity> results = Search.searchByCreator(SearchRecepticles.video, "Jim Jam");
-
-            //foreach (var item in results)
-            //{
-            //    Console.WriteLine(item.title);
-            //}
-
-            //Console.WriteLine( TestSearch.testcreatorNameSearch(libraryShelf));
-
-            //TODO
-            // Use filestream to write and read the list of items in your application
-            // this means generate your library stock from  a file and write any update those files with any 
-            // new entities added or updated inside of each format type
-
-            // create an application class in a new project called library app
-            // Try and use async versions of stream read and write!!!!!!
-
-            Shutdown.CloseApp(libraryShelf, "audio.txt", "Video.txt", "videoGame.txt", "liturature.txt");
+            TestShutdown.testCloseApp();
         }
     }
 }
