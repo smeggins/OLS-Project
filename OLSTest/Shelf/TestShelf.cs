@@ -139,7 +139,14 @@ class TestShelf
         //Read
         Console.WriteLine("reading the book info from shelf:\n");
         libraryShelf.read(Format.Liturature, "The Sword Of Truth");
-        
+
+        //test add suer
+        User abbe = new User("Abbe", "Azale");
+        User faye = new User("Faye", "Rubin");
+        abbe.addHash(abbe);
+        abbe.printInfo();
+        faye.printInfo();
+        Console.WriteLine(User.userNumbers.ToString());
 
         Console.WriteLine("\nFinished Testing Shelf");
     }

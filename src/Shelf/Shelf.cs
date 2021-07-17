@@ -16,6 +16,10 @@ public class Shelf
         LibraryShelf.Add(Format.Video, new List<Entity>());
     }
 
+
+    //new shelf from texct file
+    //public Dictionary<List<Entity>, Format> shelfText;
+
     public enum searchParam
     {
         libraryCode,

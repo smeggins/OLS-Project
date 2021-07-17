@@ -13,6 +13,7 @@ namespace OLSTest
             //Shelf libraryShelf = TestShelf.createTestShelf();
 
             TestShutdown.testCloseApp();
+            TestStartup.testopenApp();
         }
     }
 }

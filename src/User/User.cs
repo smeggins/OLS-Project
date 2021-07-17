@@ -4,25 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OLS.src.User
+
+public class User
 {
-    public class User 
+
+    public static HashSet<User> userNumbers = new HashSet<User>();
+
+    public void addHash(User user)
     {
-        public string FullName { get; set; }
-        //TODO make static
-        public int UserNumber = 0;
-        private Cart cart;
 
-        public User(string fullName)
-        {
-            FullName = fullName;
-            UserNumber += 1;
-            cart = new Cart();
-        }
+        //int usernum = user.UserNumber;
 
-        public void printInfo()
-        {
-            Console.WriteLine("The users name is {0} and their number is {1}", FullName, UserNumber);
-        }
+        userNumbers.Add(user);
+
+        Console.WriteLine(user.firstName + " has been added.");
+    }
+
+
+
+
+
+    public string firstName;
+    public string lastName;
+
+    //public static int UserNumber = 0;
+
+
+
+    //public string FullName { get; set; }
+    //TODO make static
+    public static int userCounter = 0;
+    public int UserNumber = 0;
+    //private Cart cart;
+
+    public User(string FirstName, string LastName)
+    {
+        firstName = FirstName;
+        lastName = LastName;
+        userCounter++;
+        UserNumber = userCounter;
+
+        //cart = new Cart();
+    }
+
+    public void printInfo()
+    {
+        Console.WriteLine("The users name is {0} and their number is {1}", firstName, UserNumber);
     }
 }
