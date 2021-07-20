@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,11 @@ using System.Threading.Tasks;
 
 public class Shelf
 {
+
+    //StreamWriter sw = new StreamWriter("shelfList.txt");
+    //FileStream fs = new FileStream("shelfList", FileMode.Open);
+
+    //string fileName = "shelfList.txt";
     public Dictionary<Format, List<Entity>> LibraryShelf;
     public Dictionary<string, List<Entity>> titleSearchContainer;
     public Shelf() {
@@ -64,6 +70,37 @@ public class Shelf
         }
         return -1;
     }
+
+    public void addToList(List<Entity> items)
+    {
+
+        using (StreamWriter sw = new StreamWriter("shelfList.txt"))
+        {
+            foreach (Entity value in items)
+
+            { 
+                sw.WriteLine("Item Title: " + value.title);
+            }
+        }
+
+        Console.WriteLine("yooooo");
+
+        /*foreach(Entity value in items)
+        {
+
+            sw.Write("Item Title" + value.title);
+        }*/
+
+        //File.WriteAllText(fileName, "test writng");
+
+        /*using (StreamWriter sw = new StreamWriter(fs))
+        {
+            sw.Write("Item Title");
+        }*/
+
+        //sw.Write("Item Title");
+    }
+
 
     public void add(Format type, List<Entity> list)
     {

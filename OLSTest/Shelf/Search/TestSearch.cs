@@ -39,7 +39,7 @@ public static class TestSearch
 
         Console.WriteLine("Searching Audio for Rap");
 
-        IEnumerable<Audio> audioResults = Search.searchByGenre(shelf, AudioGenre.Rap);
+        IEnumerable<Audio> audioResults = Search.searchByGenre(shelf, AudioGenre.HipHop);
         foreach (var item in audioResults)
         {
             Console.WriteLine("found Items: ");
@@ -47,7 +47,9 @@ public static class TestSearch
         }
     }
 
+
     public static bool testcreatorNameSearch(Shelf shelf)
+
     {
         int found = 0;
         SearchRecepticles.instantiateSearchDictionaries(shelf);
@@ -84,6 +86,38 @@ public static class TestSearch
         else
         {
             return false;
+        }
+
+
+        List<Entity> audioResults = Search.searchByCreator(SearchRecepticles.audio, "Jim Jam");
+
+        Console.WriteLine("Found Items:  ");
+        foreach(var item in audioResults)
+        {
+            Console.WriteLine(item.title);
+        }
+
+        List<Entity> litResults = Search.searchByCreator(SearchRecepticles.lit, "Jim Jam");
+        Console.WriteLine("Found Items: ");
+        foreach (var item in litResults)
+        {
+            Console.WriteLine(item.title);
+        }
+    }
+
+    public static HashSet<User> users = new HashSet<User>();
+    
+
+    public static void searchUserNum(int usernum)
+    {
+        foreach(var user in users)
+        {
+            if(usernum == User.UserNumber)
+            {
+                //var userinfo = User.
+
+                Console.WriteLine(user.firstName);
+            }
         }
     }
 }
