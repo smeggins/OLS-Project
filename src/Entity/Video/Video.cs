@@ -77,13 +77,13 @@ public class Video : Entity
     {
         List<List<string>> values = returnProperties(this);
 
-        values.Append(returnPersonList(actors));
-        values.Append(returnPersonList(stars));
-        values.Append(returnPersonList(writers));
-        values.Append(returnPersonList(producers));
-        values.Append(returnPersonList(directors));
-        values.Append(returnList<VideoMedium>(mediums));
-        values.Append(returnList<VideoGenre>(genre));
+        values.Add(returnPersonList(actors, "actors"));
+        values.Add(returnPersonList(stars, "stars"));
+        values.Add(returnPersonList(writers, "writers"));
+        values.Add(returnPersonList(producers, "producers"));
+        values.Add(returnPersonList(directors, "directors"));
+        values.Add(returnList<VideoMedium>(mediums, "mediums"));
+        values.Add(returnList<VideoGenre>(genre, "genre"));
 
         return values;
     }

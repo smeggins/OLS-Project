@@ -58,10 +58,10 @@ public class Liturature : Entity
     {
         List<List<string>> values = returnProperties(this);
 
-        values.Append(returnPersonList(authors));
-        values.Append(returnPersonList(publishers));
-        values.Append(returnPersonList(illustrators));
-        values.Append(returnList<LituratureGenre>(genre));
+        values.Add(returnPersonList(authors, "authors"));
+        values.Add(returnPersonList(publishers, "publishers"));
+        values.Add(returnPersonList(illustrators, "illustrators"));
+        values.Add(returnList<LituratureGenre>(genre, "genre"));
 
         return values;
     }

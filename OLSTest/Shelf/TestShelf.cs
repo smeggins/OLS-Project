@@ -17,7 +17,11 @@ class TestShelf
         //CREATE A BOOK
         Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
         theHobbit.authors.Add(newPerson);
+        theHobbit.authors.Add(newPerson2);
         theHobbit.genre.Add(LituratureGenre.Fantasy);
+        theHobbit.genre.Add(LituratureGenre.ActionAdventure);
+        theHobbit.genre.Add(LituratureGenre.Anthology);
+        theHobbit.genre.Add(LituratureGenre.Action);
         theHobbit.countryOfOrigin = "canada";
         theHobbit.pages = 242;
 

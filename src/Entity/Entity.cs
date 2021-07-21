@@ -197,26 +197,17 @@ public abstract class Entity
         return propertiesList;
     }
 
-    public List<string> returnList<T>(List<T> list)
+    public List<string> returnList<T>(List<T> list, string Header)
     {
         List<string> propertyInfo = new List<string>();
 
-        propertyInfo.Add(nameof(list));
+        propertyInfo.Add(Header);
 
-        if (list.Count() == 0)
+        if (list.Count() != 0)
         {
             foreach (var item in list)
             {
-                string it = item as string;
-
-                if (it != null)
-                {
-                    propertyInfo.Add(it);
-                }
-                else
-                {
-                    propertyInfo.Add("Entity.returnList failed to cast item");
-                }
+                propertyInfo.Add(item.ToString());
             }
         }
 
@@ -264,13 +255,13 @@ public abstract class Entity
         return personList;
     }
 
-    public List<string> returnPersonList(List<Person> list)
+    public List<string> returnPersonList(List<Person> list, string Header)
     {
         List<string> propertyInfo = new List<string>();
 
-        propertyInfo.Add(nameof(list));
+        propertyInfo.Add(Header);
 
-        if (list.Count() == 0)
+        if (list.Count() != 0)
         {
             foreach (Person item in list)
             {

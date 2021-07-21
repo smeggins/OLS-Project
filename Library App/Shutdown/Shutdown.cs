@@ -24,15 +24,15 @@ public static class Shutdown
 
     public static void writeCSV(StreamWriter s, List<List<string>> Values)
     {
-        foreach (List<string> itemProperties in Values)
+        foreach (List<string> itemValue in Values)
         {
             // write first value to list without the preceeding comma
-            s.Write(itemProperties[0]);
-            for (int i = 1; i < itemProperties.Count - 1; i++)
+            s.Write(itemValue[0]);
+            for (int i = 1; i < itemValue.Count - 1; i++)
             {
-                s.Write(", " + itemProperties[i]);
+                s.Write(", " + itemValue[i]);
             }
-            s.Write(", " + itemProperties[itemProperties.Count - 1] + "\n");
+            s.Write(", " + itemValue[itemValue.Count - 1] + "\n");
         }
         s.WriteLine("///, ///, ///");
     }
@@ -122,10 +122,10 @@ public static class Shutdown
     /// <param name="audioFileName">the document name you'll save your shelf to</param>
     /// <param name="videoFileName">the document name you'll save your shelf to</param>
     /// <param name="videoGameFileName">the document name you'll save your shelf to</param>
-    /// <param name="lituratureFileName">the document name you'll save your shelf to</param>
+    /// <param name="lituratureFileName">the document name you'll save your shelf to</param> help
     public static void CloseApp(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
     {
-        saveShelfToDocument(shelf, "saves/" + audioFileName + ".txt", videoFileName, "saves/" + videoGameFileName, "saves/" + lituratureFileName);
+        saveShelfToDocument(shelf, "saves/" + audioFileName + ".txt", "saves/" + videoFileName + ".txt", "saves/" + videoGameFileName + ".txt", "saves/" + lituratureFileName + ".txt");
         saveShelfToDocumentCSV(shelf, "savesCSV/" + audioFileName + ".csv", "savesCSV/" + videoFileName + ".csv", "savesCSV/" + videoGameFileName + ".csv", "savesCSV/" + lituratureFileName + ".csv");
     }
 }

@@ -66,11 +66,11 @@ public class Audio : Entity
     {
         List<List<string>> values = returnProperties(this);
 
-        values.Append(returnPersonList(artists));
-        values.Append(returnPersonList(featuredArtists));
-        values.Append(returnPersonList(producers));
-        values.Append(returnList<string>(Labels));
-        values.Append(returnList<AudioGenre>(genre));
+        values.Add(returnPersonList(artists, "artists"));
+        values.Add(returnPersonList(featuredArtists, "featuredArtists"));
+        values.Add(returnPersonList(producers, "producers"));
+        values.Add(returnList<string>(Labels, "Labels"));
+        values.Add(returnList<AudioGenre>(genre, "genre"));
 
         return values;
     }

@@ -100,18 +100,18 @@ public class VideoGame : Entity
     {
         List<List<string>> values = returnProperties(this);
 
-        values.Append(returnPersonList(headProgrammers));
-        values.Append(returnPersonList(publishers));
-        values.Append(returnPersonList(producers));
-        values.Append(returnPersonList(directors));
-        values.Append(returnPersonList(artists));
-        values.Append(returnPersonList(writers));
-        values.Append(returnList<string>(developers));
-        values.Append(returnList<string>(release));
-        values.Append(returnList<string>(composer));
-        values.Append(returnList<VideoGameMedium>(platforms));
-        values.Append(returnList<VideoGameGenre>(genre));
-        values.Append(returnList<VideoGameMode>(modes));
+        values.Add(returnPersonList(headProgrammers, "headProgrammers"));
+        values.Add(returnPersonList(publishers, "publishers"));
+        values.Add(returnPersonList(producers, "producers"));
+        values.Add(returnPersonList(directors, "directors"));
+        values.Add(returnPersonList(artists, "artists"));
+        values.Add(returnPersonList(writers, "writers"));
+        values.Add(returnList<string>(developers, "developers"));
+        values.Add(returnList<string>(release, "release"));
+        values.Add(returnList<string>(composer, "composer"));
+        values.Add(returnList<VideoGameMedium>(platforms, "platforms"));
+        values.Add(returnList<VideoGameGenre>(genre, "genre"));
+        values.Add(returnList<VideoGameMode>(modes, "modes"));
 
         return values;
     }
