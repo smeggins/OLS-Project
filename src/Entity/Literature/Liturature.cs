@@ -41,16 +41,27 @@ public class Liturature : Entity
         printList<LituratureGenre>(genre, "genre");
     }
 
-    public List<String> GetValues()
+    public List<string> GetValuesF()
     {
-        List<String> values = new List<string>();
+        List<string> values = new List<string>();
 
-        values.AddRange(returnProperties(this));
+        values.AddRange(returnPropertiesF(this));
 
-        values.AddRange(returnPersonList(authors, "authors"));
-        values.AddRange(returnPersonList(publishers, "publishers"));
-        values.AddRange(returnPersonList(illustrators, "illustrators"));
-        values.AddRange(returnList<LituratureGenre>(genre, "genre"));
+        values.AddRange(returnPersonListF(authors, "authors"));
+        values.AddRange(returnPersonListF(publishers, "publishers"));
+        values.AddRange(returnPersonListF(illustrators, "illustrators"));
+        values.AddRange(returnListF<LituratureGenre>(genre, "genre"));
+
+        return values;
+    }
+    public List<List<string>> GetValues()
+    {
+        List<List<string>> values = returnProperties(this);
+
+        values.Append(returnPersonList(authors));
+        values.Append(returnPersonList(publishers));
+        values.Append(returnPersonList(illustrators));
+        values.Append(returnList<LituratureGenre>(genre));
 
         return values;
     }

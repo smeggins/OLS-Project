@@ -10,9 +10,11 @@ namespace OLSTest
     {
         static void Main(string[] args)
         {
-            //Shelf libraryShelf = TestShelf.createTestShelf();
+            Shelf libraryShelf = TestShelf.createTestShelf();
 
-            TestShutdown.testCloseApp();
+            //TestShutdown.testCloseApp();
+            //Console.WriteLine("TestReturnProperties Successful: " + TestEntity.TestReturnProperties());
+            Shutdown.saveShelfToDocumentCSV(libraryShelf, "audio", "video", "videogame", "liturature");
         }
     }
 }

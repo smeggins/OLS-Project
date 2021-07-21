@@ -11,15 +11,30 @@ public static class Shutdown
     /// Writes bytes to stream
     /// </summary>
     /// <param name="s">The stream being written to your document</param>
-    /// <param name="Values">a list of string values. Get these values using the GetValues method on any libraryShelf format list</param>
-    public static void writeBytes(Stream s, List<String> Values)
+    /// <param name="Values">a list of string values. Get these values using the GetValuesF method on any libraryShelf format list</param>
+    public static void writeBytes(Stream s, List<string> Values)
     {
-        foreach (String item in Values)
+        foreach (string item in Values)
         {
             s.Write(Encoding.ASCII.GetBytes(item));
             s.Write(Encoding.ASCII.GetBytes("\n"));
         }
         s.Write(Encoding.ASCII.GetBytes("\n//\n\n"));
+    }
+
+    public static void writeCSV(StreamWriter s, List<List<string>> Values)
+    {
+        foreach (List<string> itemProperties in Values)
+        {
+            // write first value to list without the preceeding comma
+            s.Write(itemProperties[0]);
+            for (int i = 1; i < itemProperties.Count - 1; i++)
+            {
+                s.Write(", " + itemProperties[i]);
+            }
+            s.Write(", " + itemProperties[itemProperties.Count - 1] + "\n");
+        }
+        s.WriteLine("///, ///, ///");
     }
 
     /// <summary>
@@ -36,7 +51,7 @@ public static class Shutdown
         {
             foreach (Audio audioItem in shelf.downCastAudio())
             {
-                writeBytes(s, audioItem.GetValues());
+                writeBytes(s, audioItem.GetValuesF());
             }
         }
 
@@ -44,7 +59,7 @@ public static class Shutdown
         {
             foreach (Video videoItem in shelf.downCastVideo())
             {
-                writeBytes(s, videoItem.GetValues());
+                writeBytes(s, videoItem.GetValuesF());
             }
         }
 
@@ -52,7 +67,7 @@ public static class Shutdown
         {
             foreach (VideoGame videoGameItem in shelf.downCastVideoGame())
             {
-                writeBytes(s, videoGameItem.GetValues());
+                writeBytes(s, videoGameItem.GetValuesF());
             }
         }
 
@@ -60,7 +75,42 @@ public static class Shutdown
         {
             foreach (Liturature lituratureItem in shelf.downCastLiturature())
             {
-                writeBytes(s, lituratureItem.GetValues());
+                writeBytes(s, lituratureItem.GetValuesF());
+            }
+        }
+    }
+
+    public static void saveShelfToDocumentCSV(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
+    {
+        using (StreamWriter s = new StreamWriter(audioFileName, false))
+        {
+            foreach (Audio audioItem in shelf.downCastAudio())
+            {
+                writeCSV(s, audioItem.GetValues());
+            }
+        }
+
+        using (StreamWriter s = new StreamWriter(videoFileName, false))
+        {
+            foreach (Video videoItem in shelf.downCastVideo())
+            {
+                writeCSV(s, videoItem.GetValues());
+            }
+        }
+
+        using (StreamWriter s = new StreamWriter(videoGameFileName, false))
+        {
+            foreach (VideoGame videoGameItem in shelf.downCastVideoGame())
+            {
+                writeCSV(s, videoGameItem.GetValues());
+            }
+        }
+
+        using (StreamWriter s = new StreamWriter(lituratureFileName, false))
+        {
+            foreach (Liturature lituratureItem in shelf.downCastLiturature())
+            {
+                writeCSV(s, lituratureItem.GetValues());
             }
         }
     }

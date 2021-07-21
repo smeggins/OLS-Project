@@ -57,19 +57,33 @@ public class Video : Entity
         printList<VideoGenre>(genre, "genre");
     }
 
-    public List<String> GetValues()
+    public List<String> GetValuesF()
     {
         List<String> values = new List<string>();
 
-        values.AddRange(returnProperties(this));
+        values.AddRange(returnPropertiesF(this));
 
-        values.AddRange(returnPersonList(actors, "actors"));
-        values.AddRange(returnPersonList(stars, "stars"));
-        values.AddRange(returnPersonList(writers, "writers"));
-        values.AddRange(returnPersonList(producers, "producers"));
-        values.AddRange(returnPersonList(directors, "directors"));
-        values.AddRange(returnList<VideoMedium>(mediums, "mediums"));
-        values.AddRange(returnList<VideoGenre>(genre, "genre"));
+        values.AddRange(returnPersonListF(actors, "actors"));
+        values.AddRange(returnPersonListF(stars, "stars"));
+        values.AddRange(returnPersonListF(writers, "writers"));
+        values.AddRange(returnPersonListF(producers, "producers"));
+        values.AddRange(returnPersonListF(directors, "directors"));
+        values.AddRange(returnListF<VideoMedium>(mediums, "mediums"));
+        values.AddRange(returnListF<VideoGenre>(genre, "genre"));
+
+        return values;
+    }
+    public List<List<string>> GetValues()
+    {
+        List<List<string>> values = returnProperties(this);
+
+        values.Append(returnPersonList(actors));
+        values.Append(returnPersonList(stars));
+        values.Append(returnPersonList(writers));
+        values.Append(returnPersonList(producers));
+        values.Append(returnPersonList(directors));
+        values.Append(returnList<VideoMedium>(mediums));
+        values.Append(returnList<VideoGenre>(genre));
 
         return values;
     }
