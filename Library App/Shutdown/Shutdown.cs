@@ -28,11 +28,18 @@ public static class Shutdown
         {
             // write first value to list without the preceeding comma
             s.Write(itemValue[0]);
-            for (int i = 1; i < itemValue.Count - 1; i++)
+            if (itemValue.Count > 1)
             {
-                s.Write(", " + itemValue[i]);
+                for (int i = 1; i < itemValue.Count - 1; i++)
+                {
+                    s.Write(", " + itemValue[i]);
+                }
+                s.Write(", " + itemValue[itemValue.Count - 1] + "\n");
             }
-            s.Write(", " + itemValue[itemValue.Count - 1] + "\n");
+            else
+            {
+                s.Write("\n");
+            }
         }
         s.WriteLine("///, ///, ///");
     }
