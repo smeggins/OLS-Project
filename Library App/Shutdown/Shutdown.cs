@@ -125,6 +125,7 @@ public static class Shutdown
     /// <param name="lituratureFileName">the document name you'll save your shelf to</param>
     public static void CloseApp(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
     {
-        saveShelfToDocument(shelf, audioFileName, videoFileName, videoGameFileName, lituratureFileName);
+        saveShelfToDocument(shelf, "saves/" + audioFileName + ".txt", videoFileName, "saves/" + videoGameFileName, "saves/" + lituratureFileName);
+        saveShelfToDocumentCSV(shelf, "savesCSV/" + audioFileName + ".csv", "savesCSV/" + videoFileName + ".csv", "savesCSV/" + videoGameFileName + ".csv", "savesCSV/" + lituratureFileName + ".csv");
     }
 }

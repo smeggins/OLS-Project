@@ -9,6 +9,6 @@ public static class TestShutdown
     public static void testCloseApp()
     {
         Shelf libraryShelf = TestShelf.createTestShelf();
-        Shutdown.CloseApp(libraryShelf, "saves/audio.txt", "saves/Video.txt", "saves/videoGame.txt", "saves/liturature.txt");
+        Shutdown.CloseApp(libraryShelf, "audio", "Video", "videoGame", "liturature");
     }
 }

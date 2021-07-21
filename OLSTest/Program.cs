@@ -12,9 +12,8 @@ namespace OLSTest
         {
             Shelf libraryShelf = TestShelf.createTestShelf();
 
-            //TestShutdown.testCloseApp();
+            TestShutdown.testCloseApp();
             //Console.WriteLine("TestReturnProperties Successful: " + TestEntity.TestReturnProperties());
-            Shutdown.saveShelfToDocumentCSV(libraryShelf, "audio", "video", "videogame", "liturature");
         }
     }
 }
