@@ -74,25 +74,47 @@ public class VideoGame : Entity
         printList<VideoGameMode>(modes, "modes");
     }
 
-    public List<String> GetValues()
+    public List<String> GetValuesF()
     {
         List<String> values = new List<string>();
 
-        values.AddRange(returnProperties(this));
+        values.AddRange(returnPropertiesF(this));
 
-        values.AddRange(returnPersonList(headProgrammers, "headProgrammers"));
-        values.AddRange(returnPersonList(publishers, "publishers"));
-        values.AddRange(returnPersonList(producers, "producers"));
-        values.AddRange(returnPersonList(directors, "directors"));
-        values.AddRange(returnPersonList(artists, "artists"));
-        values.AddRange(returnPersonList(writers, "writers"));
-        values.AddRange(returnList<string>(developers, "developers"));
-        values.AddRange(returnList<string>(release, "release"));
-        values.AddRange(returnList<string>(composer, "composer"));
-        values.AddRange(returnList<VideoGameMedium>(platforms, "platforms"));
-        values.AddRange(returnList<VideoGameGenre>(genre, "genre")); 
-        values.AddRange(returnList<VideoGameMode>(modes, "modes"));
+        values.AddRange(returnPersonListF(headProgrammers, "headProgrammers"));
+        values.AddRange(returnPersonListF(publishers, "publishers"));
+        values.AddRange(returnPersonListF(producers, "producers"));
+        values.AddRange(returnPersonListF(directors, "directors"));
+        values.AddRange(returnPersonListF(artists, "artists"));
+        values.AddRange(returnPersonListF(writers, "writers"));
+        values.AddRange(returnListF<string>(developers, "developers"));
+        values.AddRange(returnListF<string>(release, "release"));
+        values.AddRange(returnListF<string>(composer, "composer"));
+        values.AddRange(returnListF<VideoGameMedium>(platforms, "platforms"));
+        values.AddRange(returnListF<VideoGameGenre>(genre, "genre")); 
+        values.AddRange(returnListF<VideoGameMode>(modes, "modes"));
 
         return values;
     }
-}
+
+    public List<List<string>> GetValues()
+    {
+        List<List<string>> values = returnProperties(this);
+
+        values.Add(returnPersonList(headProgrammers, "headProgrammers"));
+        values.Add(returnPersonList(publishers, "publishers"));
+        values.Add(returnPersonList(producers, "producers"));
+        values.Add(returnPersonList(directors, "directors"));
+        values.Add(returnPersonList(artists, "artists"));
+        values.Add(returnPersonList(writers, "writers"));
+        values.Add(returnList<string>(developers, "developers"));
+        values.Add(returnList<string>(release, "release"));
+        values.Add(returnList<string>(composer, "composer"));
+        values.Add(returnList<VideoGameMedium>(platforms, "platforms"));
+        values.Add(returnList<VideoGameGenre>(genre, "genre"));
+        values.Add(returnList<VideoGameMode>(modes, "modes"));
+
+        return values;
+    }
+
+    
+    }

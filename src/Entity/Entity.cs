@@ -54,7 +54,7 @@ public abstract class Entity
         }
     }
 
-    public List<String> returnProperties(Entity instatiatedEntity)
+    public List<string> returnPropertiesF(Entity instatiatedEntity)
     {
         // iterates through all properties of class and prints them
         // does not print Lists, handle those in child class
@@ -62,8 +62,8 @@ public abstract class Entity
         Type type = instatiatedEntity.GetType();
         PropertyInfo[] properties = type.GetProperties();
 
-        List<String> propertiesList = new List<string>();
-        String workingString;
+        List<string> propertiesList = new List<string>();
+        string workingString;
 
         foreach (PropertyInfo property in properties)
         {
@@ -90,6 +90,71 @@ public abstract class Entity
         return propertiesList;
     }
 
+    /// <summary>
+    /// accepts a library entity and extracts the name, value pairs of all properties in that object, then returns them as a list of string arrays ( string[propertyName, propertyValue] )
+    /// </summary>
+    /// <param name="instatiatedEntity">A library entity like a movie or a book</param>
+    /// <returns>
+    /// List<string[propertyName, propertyValue]>
+    /// </returns>
+    public List<List<string>> returnProperties(Entity instatiatedEntity)
+    {
+        // iterates through all properties of class and prints them
+        // does not print Lists, handle those in child class
+        // requires using System.Reflection;
+        Type type = instatiatedEntity.GetType();
+        PropertyInfo[] properties = type.GetProperties();
+
+        List<List<string>> propertiesList = new List<List<string>>();
+
+        try
+        {
+            foreach (PropertyInfo property in properties)
+            {
+                var propertyValue = property.GetValue(instatiatedEntity, null);
+                List<string> propertyInfo = new List<string>();
+
+                if (propertyValue != null)
+                {
+                    Type propertyType = propertyValue.GetType();
+
+                    // Special logic if a Person (must cast to access class
+                    if (propertyType == typeof(Person))
+                    {
+                        Person person = propertyValue as Person;
+
+                        if (person != null)
+                        {
+                            propertyInfo.Add(property.Name);
+                            propertyInfo.Add(person.fullName);
+                        }
+                        else
+                        {
+                            propertyInfo.Add(property.Name);
+                            propertyInfo.Add("Error casting to Person");
+                        }
+                    }
+                    else
+                    {
+                        propertyInfo.Add(property.Name);
+                        propertyInfo.Add(propertyValue.ToString());
+                    }
+                }
+                else
+                {
+                    propertyInfo.Add(property.Name);
+                }
+                propertiesList.Add(propertyInfo);
+            }
+        }
+        catch (Exception exception)
+        {
+            throw new InvalidCastException("Invalid cast in Entity.returnProperties");
+        }
+
+        return propertiesList;
+    }
+
     public void printList<T>(List<T> list, string Header)
     {
         if (list.Count() != 0)
@@ -102,10 +167,10 @@ public abstract class Entity
         }
     }
 
-    public List<String> returnList<T>(List<T> list, string Header)
+    public List<string> returnListF<T>(List<T> list, string Header)
     {
-        List<String> propertiesList = new List<string>();
-        String workingString;
+        List<string> propertiesList = new List<string>();
+        string workingString;
 
         workingString = Header + ":";
         propertiesList.Add(workingString);
@@ -132,6 +197,23 @@ public abstract class Entity
         return propertiesList;
     }
 
+    public List<string> returnList<T>(List<T> list, string Header)
+    {
+        List<string> propertyInfo = new List<string>();
+
+        propertyInfo.Add(Header);
+
+        if (list.Count() != 0)
+        {
+            foreach (var item in list)
+            {
+                propertyInfo.Add(item.ToString());
+            }
+        }
+
+        return propertyInfo;
+    }
+
     public void printPersonList(List<Person> list, string Header)
     {
         if (list.Count() != 0)
@@ -144,10 +226,10 @@ public abstract class Entity
         }
     }
 
-    public List<String> returnPersonList(List<Person> list, string Header)
+    public List<string> returnPersonListF(List<Person> list, string Header)
     {
-        List<String> personList = new List<string>();
-        String workingString;
+        List<string> personList = new List<string>();
+        string workingString;
 
         
         workingString = Header + ":";
@@ -171,5 +253,22 @@ public abstract class Entity
         personList.Add(workingString);
         
         return personList;
+    }
+
+    public List<string> returnPersonList(List<Person> list, string Header)
+    {
+        List<string> propertyInfo = new List<string>();
+
+        propertyInfo.Add(Header);
+
+        if (list.Count() != 0)
+        {
+            foreach (Person item in list)
+            {
+                propertyInfo.Add(item.fullName);
+            }
+        }
+
+        return propertyInfo;
     }
 }

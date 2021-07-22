@@ -47,17 +47,30 @@ public class Audio : Entity
 
     }
 
-    public List<String> GetValues()
+    public List<string> GetValuesF()
     {
-        List<String> values = new List<string>();
+        List<string> values = new List<string>();
 
-        values.AddRange(returnProperties(this));
+        values.AddRange(returnPropertiesF(this));
 
-        values.AddRange(returnPersonList(artists, "artists"));
-        values.AddRange(returnPersonList(featuredArtists, "Featured Artists"));
-        values.AddRange(returnPersonList(producers, "Producers"));
-        values.AddRange(returnList<string>(Labels, "Labels"));
-        values.AddRange(returnList<AudioGenre>(genre, "Genre"));
+        values.AddRange(returnPersonListF(artists, "artists"));
+        values.AddRange(returnPersonListF(featuredArtists, "Featured Artists"));
+        values.AddRange(returnPersonListF(producers, "Producers"));
+        values.AddRange(returnListF<string>(Labels, "Labels"));
+        values.AddRange(returnListF<AudioGenre>(genre, "Genre"));
+
+        return values;
+    }
+
+    public List<List<string>> GetValues()
+    {
+        List<List<string>> values = returnProperties(this);
+
+        values.Add(returnPersonList(artists, "artists"));
+        values.Add(returnPersonList(featuredArtists, "featuredArtists"));
+        values.Add(returnPersonList(producers, "producers"));
+        values.Add(returnList<string>(Labels, "Labels"));
+        values.Add(returnList<AudioGenre>(genre, "genre"));
 
         return values;
     }
