@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 
-public static class Search
+public class Search
 {
+    
     /// <summary>
     /// Accepts a pre-made artist dictionary to search for projects they are working on and returns a list of those entities
     /// </summary>
@@ -65,10 +67,24 @@ public static class Search
         return results;
     }
 
+    public static HashSet<User> users = new HashSet<User>();
 
-    public static List<Entity> searchByUser()
+
+    public static void searchUserNum(int usernum)
     {
-        //hashable
-        return new List<Entity>();
+        
+
+        foreach (var user in users)
+        {
+            if (usernum == User.UserNumber)
+            {
+                Console.WriteLine(user.firstName);
+            }
+        }
     }
+
+
+
+
+
 }

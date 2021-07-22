@@ -10,14 +10,20 @@ public static class SearchRecepticles
     //Abbe
     // String: Full Author name
     // Entity: library item
-    public static Dictionary<string, Entity> Lit;
+    
     // String: Full Artist name
     // Entity: library item
-    public static Dictionary<string, Entity> audio;
+    
     public static IEnumerable<int> userNumbers; // need to initialize with a list or array of all user numbers
     
     // String: developer studio name
     // Entity: library item
+
+    public static Dictionary<string, List<Entity>> lit = new Dictionary<string, List<Entity>>();
+    public static Dictionary<string, List<Entity>> audio = new Dictionary<string, List<Entity>>();
+    //public static IEnumerable<int> userNumbers = new// need to initialize with a list or array of all user numbers
+
+    //Phil
     public static Dictionary<string, List<Entity>> videoGame = new Dictionary<string, List<Entity>>();
     // String: full director name
     // Entity: library item
@@ -153,15 +159,21 @@ public static class SearchRecepticles
                 }
             }
         }
+        //item as 
 
         if (typeOfData == Format.VideoGame)
         {
             foreach (var item in inputList)
             {
-                VideoGame castItem = item as VideoGame;
+
+                /*VideoGame castItem = item as VideoGame;
                 if (castItem != null) {
                     checkKeyAddValue(outputDic, castItem);
-                }
+                } */
+
+                VideoGame castItem = (VideoGame)item; //item as videogame
+                checkKeyAddValue(outputDic, castItem);
+
             }
         }
 
@@ -173,5 +185,7 @@ public static class SearchRecepticles
         video = generateDictionary(video, shelf.LibraryShelf[Format.Video], Format.Video);
         videoGame = generateDictionary(videoGame, shelf.LibraryShelf[Format.VideoGame], Format.VideoGame);
         //TODO ABBE add your dictionaries here and test
+        lit = generateDictionary(lit, shelf.LibraryShelf[Format.Liturature], Format.Liturature);
+        audio = generateDictionary(audio, shelf.LibraryShelf[Format.Audio], Format.Audio);
     }
 }

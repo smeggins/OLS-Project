@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,21 @@ class TestShelf
         //CREATE A GENERIC PERSON
         Person newPerson = new Person("Jim", "Jam");
         Person newPerson2 = new Person("Dr", "Jones");
+
+        
+
+        //CREATING A USER
+        /*User user1 = new User("Bob", "Jenkins");
+        User user2 = new User("Andrew", "Chen");
+
+        HashSet < User> userNumbersList = new HashSet<User>();
+        userNumbersList.Add(user1);
+        userNumbersList.Add(user2);
+
+        user2.addHash(2);
+        user2.searchHash(3); */
+
+        
 
         //CREATE A BOOK
         Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
@@ -114,9 +130,15 @@ class TestShelf
         brawk.countryOfOrigin = "canada";
         brawk.pages = 242;
 
+       //VideoGame 
+
         List<Entity> testList = new List<Entity>();
         testList.Add(brawk);
         testList.Add(theSwordOfTruth);
+        
+
+        //adding the testlist to the file
+        libraryShelf.addToList(testList);
 
         //Adding via list
         libraryShelf.add(Format.Liturature, testList);
@@ -143,7 +165,7 @@ class TestShelf
         //Read
         Console.WriteLine("reading the book info from shelf:\n");
         libraryShelf.read(Format.Liturature, "The Sword Of Truth");
-        
+         
 
         Console.WriteLine("\nFinished Testing Shelf");
     }
