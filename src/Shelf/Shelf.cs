@@ -191,5 +191,40 @@ public class Shelf
         {
             Console.WriteLine(title + " Could not be found. Please enter a valid title");
         }
-    } 
+    }
+
+    /// <summary>
+    /// dumps the contents of the library shelf into a list that contains a list for each entry of information stored
+    /// provides a convenient way to compare data sets without writing to a file
+    /// </summary>
+    /// <returns>List<List<string>> containing all data stored in the library shelf</returns>
+    public List<List<string>> extractData()
+    {
+        List<List<string>> returnList = new List<List<string>>();
+
+        foreach (Audio audioItem in downCastAudio())
+        {
+            returnList.AddRange(audioItem.GetValues());
+        }
+
+
+        foreach (Video videoItem in downCastVideo())
+        {
+            returnList.AddRange(videoItem.GetValues());
+        }
+
+
+        foreach (VideoGame videoGameItem in downCastVideoGame())
+        {
+            returnList.AddRange(videoGameItem.GetValues());
+        }
+
+
+        foreach (Liturature lituratureItem in downCastLiturature())
+        {
+            returnList.AddRange(lituratureItem.GetValues());
+        }
+
+        return returnList;
+    }
 }
