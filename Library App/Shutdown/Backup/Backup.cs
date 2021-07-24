@@ -15,7 +15,7 @@ public static class Backup
     /// <returns>formattad current date as a string</returns>
     private static String getDate()
     {
-        return DateTime.Now.ToString("dd-mm-yyyy");
+        return DateTime.Now.ToString("dd-MM-yyyy");
     }
 
     /// <summary>
