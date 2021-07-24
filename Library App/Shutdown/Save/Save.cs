@@ -149,7 +149,7 @@ public static class Save
         if (Backup.backupMode == false)
         {
             saveShelfToDocument(shelf, "saves/" + "audio", "saves/" + "video", "saves/" + "videoGame", "saves/" + "liturature");
-            saveShelfToDocumentCSV(shelf, "savesCSV/" + "audio", "savesCSV/" + "video", "savesCSV/" + "videoGame", "savesCSV/" + "liturature");
+            //saveShelfToDocumentCSV(shelf, "savesCSV/" + "audio", "savesCSV/" + "video", "savesCSV/" + "videoGame", "savesCSV/" + "liturature");
             Backup.createBackup(shelf);
         }
     }
