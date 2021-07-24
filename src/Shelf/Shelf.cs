@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 public class Shelf
 {
-
-    //StreamWriter sw = new StreamWriter("shelfList.txt");
-    //FileStream fs = new FileStream("shelfList", FileMode.Open);
-
-    //string fileName = "shelfList.txt";
     public Dictionary<Format, List<Entity>> LibraryShelf;
     public Dictionary<string, List<Entity>> titleSearchContainer;
+
     public Shelf() {
         LibraryShelf = new Dictionary<Format, List<Entity>>();
         LibraryShelf.Add(Format.Liturature, new List<Entity>());
@@ -84,21 +80,6 @@ public class Shelf
         }
 
         Console.WriteLine("yooooo");
-
-        /*foreach(Entity value in items)
-        {
-
-            sw.Write("Item Title" + value.title);
-        }*/
-
-        //File.WriteAllText(fileName, "test writng");
-
-        /*using (StreamWriter sw = new StreamWriter(fs))
-        {
-            sw.Write("Item Title");
-        }*/
-
-        //sw.Write("Item Title");
     }
 
 

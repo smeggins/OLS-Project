@@ -15,21 +15,6 @@ class TestShelf
         Person newPerson = new Person("Jim", "Jam");
         Person newPerson2 = new Person("Dr", "Jones");
 
-        
-
-        //CREATING A USER
-        /*User user1 = new User("Bob", "Jenkins");
-        User user2 = new User("Andrew", "Chen");
-
-        HashSet < User> userNumbersList = new HashSet<User>();
-        userNumbersList.Add(user1);
-        userNumbersList.Add(user2);
-
-        user2.addHash(2);
-        user2.searchHash(3); */
-
-        
-
         //CREATE A BOOK
         Liturature theHobbit = new Liturature("The Hobbit", LituratureMedium.Book);
         theHobbit.authors.Add(newPerson);
