@@ -14,7 +14,7 @@ namespace OLSTest
 
             //TestShutdown.testCloseApp();
             //Console.WriteLine("TestReturnProperties Successful: " + TestEntity.TestReturnProperties());
-            TestBackup.deleteTest(libraryShelf, libraryShelf);
+            Console.WriteLine(TestBackup.deleteTest());
         }
     }
 }

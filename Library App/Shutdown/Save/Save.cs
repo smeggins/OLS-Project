@@ -32,7 +32,7 @@ public static class Save
     /// EX. ["actors", "johnny depp", "seth rogan"]
     /// "actors" is the attribute name in the entity and "johnny depp"/"seth rogan" are the fullName strings of the Person objects stored in the actors attribute 
     /// </param>
-    private static void writeCSV(StreamWriter s, List<List<string>> Values)
+    public static void writeCSV(StreamWriter s, List<List<string>> Values)
     {
         foreach (List<string> itemValue in Values)
         {
