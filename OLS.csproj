@@ -12,6 +12,12 @@
     <EmbeddedResource Remove="OLSTest\**" />
     <None Remove="Library App\**" />
     <None Remove="OLSTest\**" />
+    <None Remove="ExcelMapper" />
+    <None Remove="CsvHelper" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ExcelMapper" Version="5.2.314" />
+    <PackageReference Include="CsvHelper" Version="27.1.1" />
+  </ItemGroup>
 </Project>

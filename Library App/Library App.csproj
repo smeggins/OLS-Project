@@ -13,9 +13,17 @@
   <ItemGroup>
     <None Remove="Startup\CreateAdd\" />
     <None Remove="Startup\LoadBackup\" />
+    <None Remove="ExcelMapper" />
+    <None Remove="Startup\ReadCsv\" />
+    <None Remove="CsvHelper" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Startup\CreateAdd\" />
     <Folder Include="Startup\LoadBackup\" />
+    <Folder Include="Startup\ReadCsv\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ExcelMapper" Version="5.2.314" />
+    <PackageReference Include="CsvHelper" Version="27.1.1" />
   </ItemGroup>
 </Project>

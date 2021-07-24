@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CsvHelper;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.IO;
+using Microsoft.VisualBasic.FileIO;
 
 public static class Startup
 {
@@ -209,11 +212,69 @@ public static class Startup
 
     }
 
-    public static void readfromCSV(Shelf shelf, string lituraturecsv)
-    {
-        List<Liturature> literatureItemscsv = new List<Liturature>();
+    
 
-        using (StreamReader s = new StreamReader(lituraturecsv))
+    public static void readfromCSV(Shelf shelf, string lituraturecsv, string audiocsv, string vidcsv, string vidgamecsv)
+    {
+        //List<Liturature> literatureItemscsv = new List<Liturature>();
+
+        
+        string[] litlines = File.ReadAllText(lituraturecsv).Split(";") ;
+
+        for(int i = 0; i <litlines.Length; i++)
+        {
+            
+            Console.WriteLine(litlines[i]);
+
+
+        }
+
+
+        string[] audiolines = File.ReadAllText(audiocsv).Split(";");
+
+        for (int i = 0; i < audiolines.Length; i++)
+        {
+
+            Console.WriteLine(audiolines[i]);
+
+
+        }
+
+
+        string[] vidlines = File.ReadAllText(vidcsv).Split(";");
+
+        for (int i = 0; i < vidlines.Length; i++)
+        {
+
+            Console.WriteLine(vidlines[i]) ;
+
+
+        }
+
+
+        string[] vidgamelines = File.ReadAllText(vidgamecsv).Split(";");
+
+        for (int i = 0; i < vidgamelines.Length; i++)
+        {
+
+            Console.WriteLine(vidgamelines[i]);
+
+
+        }
+
+
+        /*using (var s = new StreamReader(lituraturecsv))
+        {
+            using (var csvReader = new CsvReader(s, CultureInfo.InvariantCulture))
+            {
+                var info = csvReader.GetRecords<string[]>().ToList();
+            }
+
+            
+        } */
+
+
+        /*using (StreamReader s = new StreamReader(lituraturecsv))
         {
             string line;
             LituratureMedium medium = LituratureMedium.Book;
@@ -240,7 +301,7 @@ public static class Startup
             
 
 
-        }
+        } */
 
 
     }
