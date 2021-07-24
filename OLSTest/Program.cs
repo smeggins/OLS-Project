@@ -11,11 +11,6 @@ namespace OLSTest
         static void Main(string[] args)
         {
             Shelf libraryShelf = TestShelf.createTestShelf();
-
-            //TestShutdown.testCloseApp();
-            //Console.WriteLine("TestReturnProperties Successful: " + TestEntity.TestReturnProperties());
-            //Console.WriteLine(TestBackup.deleteTest());
-            TestShutdown.testCloseApp();
         }
     }
 }
