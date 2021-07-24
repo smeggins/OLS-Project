@@ -10,4 +10,10 @@
     <ProjectReference Include="..\OLS.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="LibraryApp\Startup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LibraryApp\Startup\" />
+  </ItemGroup>
 </Project>

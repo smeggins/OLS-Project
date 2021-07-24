@@ -10,4 +10,12 @@
     <ProjectReference Include="..\OLS.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Startup\CreateAdd\" />
+    <None Remove="Startup\LoadBackup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Startup\CreateAdd\" />
+    <Folder Include="Startup\LoadBackup\" />
+  </ItemGroup>
 </Project>

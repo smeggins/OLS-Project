@@ -11,6 +11,12 @@ namespace OLSTest
         static void Main(string[] args)
         {
             Shelf libraryShelf = TestShelf.createTestShelf();
+            TestShutdown.testCloseApp();
+            TestStartup.TestStartupapp();
+
+            User abbe = new User("Abbe", "Azale");
+            Search.searchUserNum(1);
+            
         }
     }
 }

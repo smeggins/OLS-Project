@@ -73,7 +73,6 @@ public class Search
     public static void searchUserNum(int usernum)
     {
         
-
         foreach (var user in users)
         {
             if (usernum == User.UserNumber)

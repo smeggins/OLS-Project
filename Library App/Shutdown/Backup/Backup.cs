@@ -28,7 +28,7 @@ public static class Backup
     /// <param name="lituratureFileName"></param>
     public static void createBackup(Shelf shelf)
     {
-        Save.saveShelfToDocumentCSV(shelf, "backups/" + getDate() + "-audio", "backups/" + getDate() + "-video", "backups/" + getDate() + "-videoGame", "backups/" + getDate() + "-liturature");
+        //Save.saveShelfToDocumentCSV(shelf, "backups/" + getDate() + "-audio", "backups/" + getDate() + "-video", "backups/" + getDate() + "-videoGame", "backups/" + getDate() + "-liturature");
     }
 
     /// <summary>

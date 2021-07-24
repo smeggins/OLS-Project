@@ -212,12 +212,14 @@ public class Shelf
         }
     }
 
+
     public void updateItem(Format type, string title)
     {
         int itemindex = search(type, searchParam.title, title);
         string newTitle = "";
         Object item;
 
+        ///checks if the item is there
         if (itemindex != -1)
         {
             item = LibraryShelf[type][itemindex].title ;
