@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Linq;
 
 public static class Save
 {
@@ -52,6 +53,33 @@ public static class Save
             }
         }
         s.WriteLine("///, ///, ///");
+    }
+
+    public static XElement writeXML(List<List<string>> Values)
+    {
+        XElement returnElement = new XElement("entity");
+
+        foreach (var value in Values)
+        {
+            if (value[0] == "libraryCode" || value[0] == "title" || value[0] == "releaseDate" || value[0] == "copiesTotal" || value[0] == "copiesAvailable")
+            {
+                if (value.Count > 1)
+                {
+                    returnElement.Add(new XAttribute(value[0], value[1]));
+                }
+                else
+                {
+                    returnElement.Add(new XAttribute(value[0], ""));
+                }
+            }
+            else
+            {
+                XElement attr = new XElement(value[0], value.GetRange(1, value.Count-1));
+                returnElement.Add(attr);
+            }
+        }
+
+        return returnElement;
     }
 
     /// <summary>
@@ -138,6 +166,47 @@ public static class Save
                 writeCSV(s, lituratureItem.GetValues());
             }
         }
+    }
+
+    public static void saveShelfToDocumentXML(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
+    {
+        XDocument audioXML = new XDocument();
+        XDocument videoXML = new XDocument();
+        XDocument videoGameXML = new XDocument();
+        XDocument lituratureXML = new XDocument();
+
+        XElement audioRoot = new XElement("audioEntity");
+        XElement videoRoot = new XElement("videoEntity");
+        XElement videoGameRoot = new XElement("videoGameEntity");
+        XElement lituratureRoot = new XElement("lituratureEntity");
+
+        foreach (Audio audioItem in shelf.downCastAudio())
+        {
+            audioRoot.Add(writeXML(audioItem.GetValues()));
+        }
+        audioXML.Add(audioRoot);
+        audioXML.Save(audioFileName + ".xml");
+
+        foreach (Video videoItem in shelf.downCastVideo())
+        {
+            videoRoot.Add(writeXML(videoItem.GetValues()));
+        }
+        videoXML.Add(videoRoot);
+        videoXML.Save(videoFileName + ".xml");
+
+        foreach (VideoGame videoGameItem in shelf.downCastVideoGame())
+        {
+            videoGameRoot.Add(writeXML(videoGameItem.GetValues()));
+        }
+        videoGameXML.Add(videoGameRoot);
+        videoGameXML.Save(videoGameFileName + ".xml");
+
+        foreach (Liturature lituratureItem in shelf.downCastLiturature())
+        {
+            lituratureRoot.Add(writeXML(lituratureItem.GetValues()));
+        }
+        lituratureXML.Add(lituratureRoot);
+        lituratureXML.Save(lituratureFileName + ".xml");
     }
 
     /// <summary>

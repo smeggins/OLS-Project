@@ -11,6 +11,8 @@ namespace OLSTest
         static void Main(string[] args)
         {
             Shelf libraryShelf = TestShelf.createTestShelf();
+
+            TestSave.testXml(libraryShelf);
         }
     }
 }
