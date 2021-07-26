@@ -114,14 +114,16 @@ public static class Load
         {
             returnShelf.add(Format.Video, readXmlToVideo(item));
         } 
-        foreach (var item in returnShelf.extractData())
-        {
-            foreach (var it in item)
-            {
-                Console.WriteLine(it);
-            }
-        } 
 
+        ////////////////////////for testing///////////////////////
+        foreach (var item in returnShelf.extractData())         //
+        {                                                       //
+            foreach (var it in item)                            //
+            {                                                   //
+                Console.WriteLine(it);                          //
+            }                                                   //
+        }                                                       //
+        //////////////////////////////////////////////////////////
 
         return returnShelf;
     }
