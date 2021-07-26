@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Startup\CreateAdd\**" />
+    <Compile Remove="Startup\LoadBackup\**" />
+    <Compile Remove="Startup\ReadCsv\**" />
+    <EmbeddedResource Remove="Startup\CreateAdd\**" />
+    <EmbeddedResource Remove="Startup\LoadBackup\**" />
+    <EmbeddedResource Remove="Startup\ReadCsv\**" />
+    <None Remove="Startup\CreateAdd\**" />
+    <None Remove="Startup\LoadBackup\**" />
+    <None Remove="Startup\ReadCsv\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OLS.csproj" />
   </ItemGroup>
 
@@ -16,11 +28,6 @@
     <None Remove="ExcelMapper" />
     <None Remove="Startup\ReadCsv\" />
     <None Remove="CsvHelper" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Startup\CreateAdd\" />
-    <Folder Include="Startup\LoadBackup\" />
-    <Folder Include="Startup\ReadCsv\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ExcelMapper" Version="5.2.314" />

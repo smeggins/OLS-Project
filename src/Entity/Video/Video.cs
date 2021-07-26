@@ -22,9 +22,31 @@ public class Video : Entity
         directors = new List<Person>();
         mediums = new List<VideoMedium>();
         genre = new List<VideoGenre>();
-
-        
     }
+
+    public Video(string a_libraryCode, string a_title, string a_releaseDate, int a_copiesTotal, 
+        int a_copiesAvailable, List<Person> a_actors, List<Person> a_stars, List<Person> a_writers, 
+        List<Person> a_producers, List<Person> a_directors, List<VideoMedium> a_mediums, 
+        List<VideoGenre> a_genre, Person a_cinematogrophy, Person a_distributer, 
+        string a_country, string a_editer, string a_music, int a_budget, int a_boxOffice, 
+        int a_runningTime) : base(a_libraryCode, a_title, a_releaseDate, a_copiesTotal, a_copiesAvailable)
+    {
+        actors = a_actors;
+        stars = a_stars;
+        writers = a_writers;
+        producers = a_producers;
+        directors = a_directors;
+        mediums = a_mediums;
+        genre = a_genre;
+        cinematogrophy = a_cinematogrophy;
+        distributer = a_distributer;
+        country = a_country;
+        editer = a_editer;
+        music = a_music;
+        budget = a_budget;
+        boxOffice = a_boxOffice;
+        runningTime = a_runningTime;
+}
 
     public List<Person> actors;
     public List<Person> stars;

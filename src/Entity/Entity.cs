@@ -16,16 +16,23 @@ public abstract class Entity
         copiesTotal = 1;
         copiesAvailable = 1;
     }
+
+    public Entity(string a_libraryCode, string a_title, string a_releaseDate, int a_copiesTotal, int a_copiesAvailable)
+    {
+        libraryCode = a_libraryCode;
+        title = a_title;
+        releaseDate = a_releaseDate;
+        copiesTotal = a_copiesTotal;
+        copiesAvailable = a_copiesAvailable;
+    }
     // format: (uniqueItem number)(Generic Type).(medium Enum Numbers separated by periods).(first letter of title)
     // example for movie alien: 1V.0.1.A
-   
+
     public string libraryCode { get; set; } 
     public string title { get; set; }
     public string releaseDate { get; set; } //format: 11/26/1986 
     public int copiesTotal { get; set; }
     public int copiesAvailable { get; set; }
-    List<Entity> preceededBy;
-    List<Entity> followedBy;
     private static int uniqueItems = 0;
 
     public abstract void print();

@@ -74,7 +74,12 @@ public static class Save
             }
             else
             {
-                XElement attr = new XElement(value[0], value.GetRange(1, value.Count-1));
+                XElement attr = new XElement(value[0]);
+                foreach (var item in value.GetRange(1, value.Count - 1))
+                {
+                    XElement val = new XElement("value", item);
+                    attr.Add(val);
+                }
                 returnElement.Add(attr);
             }
         }

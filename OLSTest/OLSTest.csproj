@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="LibraryApp\Startup\**" />
+    <EmbeddedResource Remove="LibraryApp\Startup\**" />
+    <None Remove="LibraryApp\Startup\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Library App\Library App.csproj" />
     <ProjectReference Include="..\OLS.csproj" />
   </ItemGroup>
@@ -14,9 +20,6 @@
     <None Remove="LibraryApp\Startup\" />
     <None Remove="ExcelMapper" />
     <None Remove="CsvHelper" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LibraryApp\Startup\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ExcelMapper" Version="5.2.314" />

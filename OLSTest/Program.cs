@@ -12,7 +12,8 @@ namespace OLSTest
         {
             Shelf libraryShelf = TestShelf.createTestShelf();
 
-            TestSave.testXml(libraryShelf);
+            //TestSave.testXml(libraryShelf);
+            TestLoad.testXml();
         }
     }
 }

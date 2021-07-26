@@ -18,6 +18,16 @@ public class Liturature : Entity
         libraryCode += "L." + (int)medium + "." + a_title[0];
     }
 
+    //public Liturature(string a_title, LituratureMedium a_medium) : base(a_title)
+    //{
+    //    authors = new List<Person>();
+    //    publishers = new List<Person>();
+    //    illustrators = new List<Person>();
+    //    medium = a_medium;
+    //    genre = new List<LituratureGenre>();
+    //    libraryCode += "L." + (int)medium + "." + a_title[0];
+    //}
+
     public List<Person> authors;
     public List<Person> publishers;
     public List<Person> illustrators;
