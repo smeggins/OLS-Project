@@ -18,7 +18,37 @@ public static class Test
     {
         var hashedList1 = new HashSet<T>(list1);
         var hashedList2 = new HashSet<T>(list2);
+
         return hashedList1.SetEquals(hashedList2);
+    }
+
+    public static bool compareListsofLists<T>(List<List<T>> list1, List<List<T>> list2)
+    {
+        bool succeeds = false;
+
+        if (list1.Count == list2.Count)
+        {
+            foreach (var beforeItem in list1)
+            {
+                succeeds = false;
+
+                foreach (var afterItem in list2)
+                {
+                    if (Test.compareLists<T>(beforeItem, afterItem))
+                    {
+                        succeeds = true;
+                        break;
+                    }
+                }
+
+                if (succeeds == false)
+                {
+                    break;
+                }
+            }
+        }
+
+        return succeeds;
     }
 
     /// <summary>

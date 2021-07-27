@@ -41,7 +41,7 @@ public class Video : Entity
         cinematogrophy = a_cinematogrophy;
         distributer = a_distributer;
         country = a_country;
-        editer = a_editer;
+        editor = a_editer;
         music = a_music;
         budget = a_budget;
         boxOffice = a_boxOffice;
@@ -59,7 +59,7 @@ public class Video : Entity
     public Person distributer { get; set; }
     
     public string country { get; set; }
-    public string editer { get; set; }
+    public string editor { get; set; }
     public string music { get; set; }
     public int budget { get; set; }
     public int boxOffice { get; set; }

@@ -150,6 +150,7 @@ public abstract class Entity
                 else
                 {
                     propertyInfo.Add(property.Name);
+                    propertyInfo.Add("");
                 }
                 propertiesList.Add(propertyInfo);
             }
