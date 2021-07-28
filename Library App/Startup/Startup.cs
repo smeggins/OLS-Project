@@ -214,68 +214,14 @@ public static class Startup
 
     
 
-    public static void readfromCSV(Shelf shelf, string lituraturecsv, string audiocsv, string vidcsv, string vidgamecsv)
+    public static void readfromCSV(Shelf shelf, string lituraturecsv, string audiocsv, string videocsv, string videogamecsv)
     {
-        //List<Liturature> literatureItemscsv = new List<Liturature>();
-
         
-        string[] litlines = File.ReadAllText(lituraturecsv).Split(";") ;
 
-        for(int i = 0; i <litlines.Length; i++)
-        {
-            
-            Console.WriteLine(litlines[i]);
-
-
-        }
-
-
-        string[] audiolines = File.ReadAllText(audiocsv).Split(";");
-
-        for (int i = 0; i < audiolines.Length; i++)
+        using (StreamReader s = new StreamReader(lituraturecsv))
         {
 
-            Console.WriteLine(audiolines[i]);
-
-
-        }
-
-
-        string[] vidlines = File.ReadAllText(vidcsv).Split(";");
-
-        for (int i = 0; i < vidlines.Length; i++)
-        {
-
-            Console.WriteLine(vidlines[i]) ;
-
-
-        }
-
-
-        string[] vidgamelines = File.ReadAllText(vidgamecsv).Split(";");
-
-        for (int i = 0; i < vidgamelines.Length; i++)
-        {
-
-            Console.WriteLine(vidgamelines[i]);
-
-
-        }
-
-
-        /*using (var s = new StreamReader(lituraturecsv))
-        {
-            using (var csvReader = new CsvReader(s, CultureInfo.InvariantCulture))
-            {
-                var info = csvReader.GetRecords<string[]>().ToList();
-            }
-
-            
-        } */
-
-
-        /*using (StreamReader s = new StreamReader(lituraturecsv))
-        {
+            Console.WriteLine("Literature: ");
             string line;
             LituratureMedium medium = LituratureMedium.Book;
             string title;
@@ -298,10 +244,95 @@ public static class Startup
 
             }
 
-            
+        }
+
+        using (StreamReader s = new StreamReader(audiocsv))
+        {
+
+            Console.WriteLine("Audio: ");
+            string line;
+            //LituratureMedium medium = LituratureMedium.Book;
+            string title;
+            string[] words = null;
+            //string lines = s.ReadToEnd();
+
+            var lines = File.ReadLines(audiocsv);
+
+            while ((line = s.ReadLine()) != null)
+            {
+                words = line.Split(",");
 
 
-        } */
+                foreach (string word in words)
+                {
+                    Console.WriteLine(word);
+                }
+
+
+
+
+            }
+
+        }
+
+        using (StreamReader s = new StreamReader(videocsv))
+        {
+
+            Console.WriteLine("Videos: ");
+            string line;
+            //LituratureMedium medium = LituratureMedium.Book;
+            string title;
+            string[] words = null;
+            //string lines = s.ReadToEnd();
+
+            var lines = File.ReadLines(videocsv);
+
+            while ((line = s.ReadLine()) != null)
+            {
+                words = line.Split(",");
+
+
+                foreach (string word in words)
+                {
+                    Console.WriteLine(word);
+                }
+
+
+
+
+            }
+
+        }
+
+        using (StreamReader s = new StreamReader(videogamecsv))
+        {
+            string line;
+            Console.WriteLine("Video Ganmes: ");
+            //LituratureMedium medium = LituratureMedium.Book;
+            string title;
+            string[] words = null;
+            //string lines = s.ReadToEnd();
+
+            var lines = File.ReadLines(videogamecsv);
+
+            while ((line = s.ReadLine()) != null)
+            {
+                words = line.Split(",");
+
+
+                foreach (string word in words)
+                {
+                    Console.WriteLine(word);
+                }
+
+
+
+
+            }
+
+        }
+
+
 
 
     }
