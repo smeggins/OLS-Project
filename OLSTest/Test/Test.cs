@@ -16,15 +16,24 @@ public static class Test
     /// <returns>true if the lists are identical, false if they are not</returns>
     public static bool compareLists<T>(List<T> list1, List<T> list2)
     {
-        var hashedList1 = new HashSet<T>(list1);
-        var hashedList2 = new HashSet<T>(list2);
+        if (list1.Count == list2.Count)
+        {
+            var hashedList1 = new HashSet<T>(list1);
+            var hashedList2 = new HashSet<T>(list2);
 
-        return hashedList1.SetEquals(hashedList2);
+            return hashedList1.SetEquals(hashedList2);
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 
     public static bool compareListsofLists<T>(List<List<T>> list1, List<List<T>> list2)
     {
         bool succeeds = false;
+        int temp = 0;
 
         if (list1.Count == list2.Count)
         {

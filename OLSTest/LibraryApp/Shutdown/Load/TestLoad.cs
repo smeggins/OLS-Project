@@ -15,6 +15,7 @@ public static class TestLoad
             Video videoCast = item as Video;
             Liturature lituratureCast = item as Liturature;
 
+
             if (videoCast != null)
             {
                 strings.AddRange(videoCast.GetValues());
@@ -27,6 +28,7 @@ public static class TestLoad
 
         return strings;
     }
+
     public static bool testreadXmlToVideo()
     {
         bool succeeds = true;
@@ -44,6 +46,34 @@ public static class TestLoad
             shelf = Load.loadXml("testFiles/testreadXmlToVideo/audio", "testFiles/testreadXmlToVideo/video", "testFiles/testreadXmlToVideo/videoGame", "testFiles/testreadXmlToVideo/liturature");
 
             after = entitiesToStrings(shelf.LibraryShelf[Format.Video]);
+
+            succeeds = Test.compareListsofLists<string>(before, after);
+        }
+        else
+        {
+            succeeds = false;
+        }
+
+        return succeeds;
+    }
+
+    public static bool testreadXmlToLiturature()
+    {
+        bool succeeds = true;
+        List<List<string>> before;
+        List<List<string>> after;
+
+        Shelf shelf = TestShelf.createTestShelf();
+        Save.saveShelfToDocumentXML(shelf, "testFiles/testreadXmlToLiturature/audio", "testFiles/testreadXmlToLiturature/video", "testFiles/testreadXmlToLiturature/videoGame", "testFiles/testreadXmlToLiturature/liturature");
+
+        before = entitiesToStrings(shelf.LibraryShelf[Format.Liturature]);
+
+        if (before.Count > 0)
+        {
+            shelf = null;
+            shelf = Load.loadXml("testFiles/testreadXmlToLiturature/audio", "testFiles/testreadXmlToLiturature/video", "testFiles/testreadXmlToLiturature/videoGame", "testFiles/testreadXmlToLiturature/liturature");
+
+            after = entitiesToStrings(shelf.LibraryShelf[Format.Liturature]);
 
             succeeds = Test.compareListsofLists<string>(before, after);
         }

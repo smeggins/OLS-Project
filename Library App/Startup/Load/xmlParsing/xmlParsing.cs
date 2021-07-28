@@ -40,7 +40,7 @@ class xmlParsing
     {
         List<VideoMedium> mediums = new List<VideoMedium>();
 
-        foreach (var medium in elements.Descendants("medium"))
+        foreach (XElement medium in elements)
         {
             // Takes the value and attempts to parse it to the medium type
             // out creates and instatiates an audioMedium variable names mediumValue
@@ -55,7 +55,7 @@ class xmlParsing
     {
         List<LituratureMedium> mediums = new List<LituratureMedium>();
 
-        foreach (var medium in elements.Descendants("medium"))
+        foreach (XElement medium in elements)
         {
             // Takes the value and attempts to parse it to the medium type
             // out creates and instatiates an audioMedium variable names mediumValue
@@ -70,12 +70,12 @@ class xmlParsing
     {
         List<VideoGenre> genres = new List<VideoGenre>();
 
-        foreach (var genre in elements.Descendants("genre"))
+        foreach (XElement genre in elements)
         {
-            // Takes the value and attempts to parse it to the medium type
-            // out creates and instatiates an audioMedium variable names mediumValue
-            Enum.TryParse(genre.Value, out VideoGenre mediumValue);
-            genre.Add(mediumValue);
+            // Takes the value and attempts to parse it to the genre type
+            // out creates and instatiates an audioMedium variable names genreValue
+            Enum.TryParse(genre.Value, out VideoGenre genreValue);
+            genres.Add(genreValue);
         }
 
         return genres;
@@ -85,12 +85,12 @@ class xmlParsing
     {
         List<LituratureGenre> genres = new List<LituratureGenre>();
 
-        foreach (var genre in elements.Descendants("genre"))
+        foreach(XElement genre in elements)
         {
-            // Takes the value and attempts to parse it to the medium type
-            // out creates and instatiates an audioMedium variable names mediumValue
-            Enum.TryParse(genre.Value, out LituratureGenre mediumValue);
-            genre.Add(mediumValue);
+            // Takes the value and attempts to parse it to the genre type
+            // out creates and instatiates an audioMedium variable names genreValue
+            Enum.TryParse(genre.Value, out LituratureGenre genreValue);
+            genres.Add(genreValue);
         }
 
         return genres;

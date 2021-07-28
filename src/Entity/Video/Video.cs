@@ -46,7 +46,7 @@ public class Video : Entity
         budget = a_budget;
         boxOffice = a_boxOffice;
         runningTime = a_runningTime;
-}
+    }
 
     public List<Person> actors;
     public List<Person> stars;
