@@ -84,4 +84,27 @@ public static class Test
         return returnList;
     }
 
+    public static List<List<string>> entitiesToStrings(List<Entity> entities)
+    {
+        List<List<string>> strings = new List<List<string>>();
+
+        foreach (var item in entities)
+        {
+            Video videoCast = item as Video;
+            Liturature lituratureCast = item as Liturature;
+
+
+            if (videoCast != null)
+            {
+                strings.AddRange(videoCast.GetValues());
+            }
+            else if (lituratureCast != null)
+            {
+                strings.AddRange(lituratureCast.GetValues());
+            }
+        }
+
+        return strings;
+    }
+
 }

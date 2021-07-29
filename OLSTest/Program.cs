@@ -12,10 +12,9 @@ namespace OLSTest
         {
             Shelf libraryShelf = TestShelf.createTestShelf();
 
-            //TestSave.testXml(libraryShelf);
             Console.WriteLine("TestLoad.testreadXmlToVideo(): " + TestLoad.testreadXmlToVideo());
             Console.WriteLine("TestLoad.testreadXmlToLiturature(): " + TestLoad.testreadXmlToLiturature());
-            //Console.WriteLine( TestTest.testCompareListsofLists());
+            Console.WriteLine("TestUpdate.testUpdate(): " + TestUpdate.testUpdate());
         }
     }
 }
