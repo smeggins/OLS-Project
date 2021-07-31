@@ -55,6 +55,11 @@ public static class Save
         s.WriteLine("///, ///, ///");
     }
 
+    /// <summary>
+    /// converts shelf entity to xml
+    /// </summary>
+    /// <param name="Values">values of a shelf entity</param>
+    /// <returns>an XElement containing shelf entity values</returns>
     public static XElement writeXML(List<List<string>> Values)
     {
         XElement returnElement = new XElement("entity");
@@ -173,6 +178,14 @@ public static class Save
         }
     }
 
+    /// <summary>
+    /// saves shelf to xml document
+    /// </summary>
+    /// <param name="shelf">the current working shelf</param>
+    /// <param name="audioFileName">the file address without the filetype (ie test/audio)</param>
+    /// <param name="videoFileName">the file address without the filetype (ie test/audio)</param>
+    /// <param name="videoGameFileName">the file address without the filetype (ie test/audio)</param>
+    /// <param name="lituratureFileName">the file address without the filetype (ie test/audio)</param>
     public static void saveShelfToDocumentXML(Shelf shelf, string audioFileName, string videoFileName, string videoGameFileName, string lituratureFileName)
     {
         XDocument audioXML = new XDocument();
