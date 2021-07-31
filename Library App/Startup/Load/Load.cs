@@ -7,6 +7,11 @@ using System.Xml.Linq;
 
 public static class Load
 {
+    /// <summary>
+    /// Takes an Xelement of a Video Entity and returns the data as an Entity
+    /// </summary>
+    /// <param name="elements">An XElement of an Video Entity</param>
+    /// <returns>a Video Object</returns>
     public static Entity readXmlToVideo(XElement elements)
     {
         string libraryCode = elements.Attributes().Where(e => e.Name == "libraryCode").First().Value;
@@ -65,6 +70,11 @@ public static class Load
                                         distributer, country, editer, music, budget, boxOffice, runningTime);
     }
 
+    /// <summary>
+    /// Takes an Xelement of a Liturature Entity and returns the data as an Entity
+    /// </summary>
+    /// <param name="elements">An XElement of an Liturature Entity</param>
+    /// <returns>a Liturature Object</returns>
     public static Entity readXmlToLiturature(XElement elements)
     {
         string libraryCode = elements.Attributes().Where(e => e.Name == "libraryCode").First().Value;
@@ -121,6 +131,14 @@ public static class Load
                                         LCClass, setIn, pages, OCLC);
     }
 
+    /// <summary>
+    /// Loads all xml files
+    /// </summary>
+    /// <param name="audioFileLocation">xml file location without the file type (ie testxml/audio )</param>
+    /// <param name="videoFileLocation">xml file location without the file type (ie testxml/video )</param>
+    /// <param name="videoGameFileLocation">xml file location without the file type (ie testxml/videoGame )</param>
+    /// <param name="lituratureFileLocation">xml file location without the file type (ie testxml/liturature )</param>
+    /// <returns>returns an instantiated shelf</returns>
     public static Shelf loadXml(string audioFileLocation, string videoFileLocation, 
                                 string videoGameFileLocation, string lituratureFileLocation)
     {

@@ -8,6 +8,11 @@ using System.Xml.Linq;
 
 class xmlParsing
 {
+    /// <summary>
+    /// Converts an Ienumarable of XElements into a list of strings
+    /// </summary>
+    /// <param name="elements">an XElement</param>
+    /// <returns>List of strings of data</returns>
     public static List<string> xElementEnumToStrings(IEnumerable<XElement> elements)
     {
         List<string> returnList = new List<string>();
@@ -20,6 +25,12 @@ class xmlParsing
         return returnList;
     }
 
+    /// <summary>
+    /// Takes an Ienumerable of XElements of peoples names, 
+    /// then splits the retrieved data and uses that to create a new person.
+    /// </summary>
+    /// <param name="elements">an XElement containing a Persons Name</param>
+    /// <returns>a list of Persons</returns>
     public static List<Person> xElementEnumToPersons(IEnumerable<XElement> elements)
     {
         List<Person> returnList = new List<Person>();
@@ -36,6 +47,12 @@ class xmlParsing
         return returnList;
     }
 
+    /// <summary>
+    /// Takes an Ienumerable of XElements of VideoMediums, 
+    /// then splits the retrieved data and uses that to create a LituratureMedium.
+    /// </summary>
+    /// <param name="elements">an XElement containing aVideoMediums</param>
+    /// <returns>a list of VideoMediums</returns>
     public static List<VideoMedium> xElementEnumToVideoMediums(IEnumerable<XElement> elements)
     {
         List<VideoMedium> mediums = new List<VideoMedium>();
@@ -51,6 +68,12 @@ class xmlParsing
         return mediums;
     }
 
+    /// <summary>
+    /// Takes an Ienumerable of XElements of LituratureMediums, 
+    /// then splits the retrieved data and uses that to create a LituratureMedium.
+    /// </summary>
+    /// <param name="elements">an XElement containing aLituratureMediums</param>
+    /// <returns>a list of LituratureMediums</returns>
     public static List<LituratureMedium> xElementEnumToLituratureMediums(IEnumerable<XElement> elements)
     {
         List<LituratureMedium> mediums = new List<LituratureMedium>();
@@ -66,6 +89,12 @@ class xmlParsing
         return mediums;
     }
 
+    /// <summary>
+    /// Takes an Ienumerable of XElements of VideoGenre, 
+    /// then splits the retrieved data and uses that to create a VideoGenre.
+    /// </summary>
+    /// <param name="elements">an XElement containing aVideoGenre</param>
+    /// <returns>a list of VideoGenre</returns>
     public static List<VideoGenre> xElementEnumToVideoGenres(IEnumerable<XElement> elements)
     {
         List<VideoGenre> genres = new List<VideoGenre>();
@@ -81,6 +110,12 @@ class xmlParsing
         return genres;
     }
 
+    /// <summary>
+    /// Takes an Ienumerable of XElements of LituratureGenre, 
+    /// then splits the retrieved data and uses that to create a LituratureGenre.
+    /// </summary>
+    /// <param name="elements">an XElement containing aLituratureGenre</param>
+    /// <returns>a list of LituratureGenre</returns>
     public static List<LituratureGenre> xElementEnumToLituratureGenres(IEnumerable<XElement> elements)
     {
         List<LituratureGenre> genres = new List<LituratureGenre>();
