@@ -22,12 +22,14 @@
   <ItemGroup>
     <Folder Include="Startup\CreateAdd\" />
     <Folder Include="Startup\LoadBackup\" />
-    <Folder Include="Startup\ReadCsv\" />
-    <Folder Include="Startup\WriteCSV\" />
-    <Folder Include="Startup\UpdateCSV\" />
+    <Folder Include="Startup\Readxml\" />
+    <Folder Include="Startup\WriteXML\" />
+    <Folder Include="Startup\UpdateXML\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ColinChang.MongoHelper.JsonConvert" Version="1.0.0" />
     <PackageReference Include="ExcelMapper" Version="5.2.314" />
     <PackageReference Include="CsvHelper" Version="27.1.1" />
+    <PackageReference Include="JObject" Version="1.0.0" />
   </ItemGroup>
 </Project>

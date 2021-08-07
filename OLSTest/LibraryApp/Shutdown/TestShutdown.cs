@@ -8,7 +8,7 @@ public static class TestShutdown
 {
     public static void testCloseApp()
     {
-        Shelf libraryShelf = TestShelf.createTestShelf();
-        Shutdown.CloseApp(libraryShelf, "audio", "Video", "videoGame", "liturature");
+        //Shelf libraryShelf = TestShelf.createTestShelf();
+        //Shutdown.CloseApp(libraryShelf, "audio", "Video", "videoGame", "liturature");
     }
 }
