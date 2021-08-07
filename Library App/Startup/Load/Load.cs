@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.IO;
+using System.Text.Json;
 
 public static class Load
 {
@@ -156,6 +158,24 @@ public static class Load
         {
             returnShelf.add(Format.Liturature, readXmlToLiturature(item));
         }
+
+        return returnShelf;
+    }
+
+    /// <summary>
+    /// instantiates a shelf using a json file at the given location
+    /// </summary>
+    /// <param name="fileLocation">json file location without the file type (ie testxml/video) containing shelf information</param>
+    /// <returns>the instantiated shelf</returns>
+    public static Shelf loadJson(string fileLocation)
+    {
+        Shelf returnShelf = new Shelf();
+        
+        var jsonFromFile = File.ReadAllText(fileLocation + ".json");
+
+        JsonSerializerOptions serializeShelfSettings = new JsonSerializerOptions();
+        serializeShelfSettings.Converters.Add(new JsonShelfConverter());
+        returnShelf.LibraryShelf = JsonSerializer.Deserialize<Dictionary<Format, List<Entity>>>(jsonFromFile, serializeShelfSettings);
 
         return returnShelf;
     }

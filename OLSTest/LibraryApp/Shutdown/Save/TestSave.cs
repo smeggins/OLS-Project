@@ -10,4 +10,9 @@ public static class TestSave
     {
         Save.saveShelfToDocumentXML(shelf, "testFiles/xmlTest/audio", "testFiles/xmlTest/video", "testFiles/xmlTest/videoGame", "testFiles/xmlTest/liturature");
     }
+
+    public static void testJson(Shelf shelf)
+    {
+        Save.saveShelfToDocumentJson(shelf, "testFiles/jsonTest/shelf");
+    }
 }

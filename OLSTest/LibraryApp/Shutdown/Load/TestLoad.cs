@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
 
 public static class TestLoad
 {
@@ -65,5 +68,36 @@ public static class TestLoad
     public static Shelf testXml()
     {
         return Load.loadXml("testFiles/xmlTest/audio", "testFiles/xmlTest/video", "testFiles/xmlTest/videoGame", "testFiles/xmlTest/liturature");
+    }
+
+    public static bool testJson()
+    {
+        bool succeeds = true;
+        List<List<string>> before;
+        List<List<string>> after;
+
+        Shelf shelf = TestShelf.createXMLTestShelf();
+        Save.saveShelfToDocumentJson(shelf, "testFiles/jsonLoadTest/shelf");
+
+        before = Test.entitiesToStrings(shelf.LibraryShelf[Format.Liturature]);
+
+        if (before.Count > 0)
+        {
+            shelf = null;
+            shelf = Load.loadJson("testFiles/jsonLoadTest/shelf");
+
+            after = Test.entitiesToStrings(shelf.LibraryShelf[Format.Liturature]);
+            
+            succeeds = Test.compareListsofLists<string>(before, after);
+        }
+        else
+        {
+            succeeds = false;
+        }
+
+        
+        
+
+        return succeeds;
     }
 }

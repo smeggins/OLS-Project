@@ -54,10 +54,16 @@ public class TestShelf
         Video alien = new Video("Alien", mediumListB);
         alien.country = "America";
         alien.directors.Add(newPerson);
+        alien.cinematogrophy = new Person("barry", "boring");
+        alien.genre.Add(VideoGenre.ScienceFiction);
+        alien.genre.Add(VideoGenre.Horror);
+        alien.mediums.Add(VideoMedium.Blueray);
+        alien.mediums.Add(VideoMedium.DVD);
 
         Video theAdamsFamily = new Video("The Adams Family", mediumListB);
         theAdamsFamily.country = "America";
         theAdamsFamily.directors.Add(newPerson);
+        theAdamsFamily.cinematogrophy = new Person("bing", "bong");
 
         //CREATE AUDIO
         List<AudioMedium> mediumListC = new List<AudioMedium>();

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 public class Person
 {
     public string firstName { get; set; }
@@ -22,6 +20,16 @@ public class Person
     {
         firstName = a_firstName;
         lastName = a_lastName;
+        ++numberOfPeople;
+        ID = "" + firstName[0] + lastName[0] + numberOfPeople;
+        fullName = firstName + " " + lastName;
+    }
+
+    public Person(string a_fullName)
+    {
+        string[] names = a_fullName.Split(' ');
+        firstName = names[0];
+        lastName = names[1];
         ++numberOfPeople;
         ID = "" + firstName[0] + lastName[0] + numberOfPeople;
         fullName = firstName + " " + lastName;

@@ -27,7 +27,7 @@ public static class TestUpdate
         return shelf;
     }
 
-    public static bool testUpdate()
+    public static bool testUpdateXml()
     {
         bool succeeds = false;
 
@@ -37,6 +37,22 @@ public static class TestUpdate
         shelf = Update.updateXml(shelf, "testFiles/xmlUpdateTest/audio", "testFiles/xmlUpdateTest/video", "testFiles/xmlUpdateTest/videoGame", "testFiles/xmlUpdateTest/liturature");
 
         if(shelf.LibraryShelf[Format.Video].Any(e => e.title == "StarWars") && shelf.LibraryShelf[Format.Liturature].Any(e => e.title == "Mad") && (shelf.LibraryShelf[Format.Liturature].First(e => e.title == "The Hobbit") as Liturature).setIn == "Middle Earth"  )
+        {
+            succeeds = true;
+        }
+
+        return succeeds;
+    }
+
+    public static bool testUpdateJson()
+    {
+        bool succeeds = false;
+
+        Shelf shelf = TestShelf.createXMLTestShelf();
+        Save.saveShelfToDocumentJson(createUpdateShelf(), "testFiles/jsonUpdateTest/shelf");
+        shelf = Update.update(shelf, Load.loadJson("testFiles/jsonUpdateTest/shelf"));
+
+        if (shelf.LibraryShelf[Format.Video].Any(e => e.title == "StarWars") && shelf.LibraryShelf[Format.Liturature].Any(e => e.title == "Mad") && (shelf.LibraryShelf[Format.Liturature].First(e => e.title == "The Hobbit") as Liturature).setIn == "Middle Earth")
         {
             succeeds = true;
         }

@@ -71,4 +71,57 @@ public static class Update
 
         return returnShelf;
     }
+
+    public static Shelf update(Shelf shelf, Shelf updateShelf)
+    {
+        // Note: I should probably abstract the foreach loops but i've decided to leave it considering there are only 2 instances of it and it wouldn't 
+        // conceivably scale past 4. Also no one else went that far and i don't feel like doing it :)
+
+        Shelf returnShelf = shelf;
+
+        foreach (Entity entity in updateShelf.LibraryShelf[Format.Video])
+        {
+            // if the entity already exists in the working shelf
+            if (returnShelf.LibraryShelf[Format.Video].Any(e => e.title == entity.title))
+            {
+                for (int i = 0; i < returnShelf.LibraryShelf[Format.Video].Count; i++)
+                {
+                    // get the location of that entity and replace it with the updated version
+                    if (returnShelf.LibraryShelf[Format.Video][i].title == entity.title)
+                    {
+                        returnShelf.LibraryShelf[Format.Video][i] = entity;
+                    }
+                }
+            }
+            // else add the new entity to the returnShelf
+            else
+            {
+                returnShelf.LibraryShelf[Format.Video].Add(entity);
+            }
+        }
+
+        foreach (Entity entity in updateShelf.LibraryShelf[Format.Liturature])
+        {
+            // if the entity already exists in the working shelf
+            if (returnShelf.LibraryShelf[Format.Liturature].Any(e => e.title == entity.title))
+            {
+                for (int i = 0; i < returnShelf.LibraryShelf[Format.Liturature].Count; i++)
+                {
+                    // get the location of that entity and replace it with the updated version
+                    if (returnShelf.LibraryShelf[Format.Liturature][i].title == entity.title)
+                    {
+                        returnShelf.LibraryShelf[Format.Liturature][i] = entity;
+                    }
+                }
+            }
+            // else add the new entity to the returnShelf
+            else
+            {
+                returnShelf.LibraryShelf[Format.Liturature].Add(entity);
+            }
+        }
+
+        return returnShelf;
+    }
 }
+

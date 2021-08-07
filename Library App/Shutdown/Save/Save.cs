@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 public static class Save
 {
@@ -228,6 +230,22 @@ public static class Save
     }
 
     /// <summary>
+    /// saves shelf to Json document
+    /// </summary>
+    /// <param name="shelf">the current working shelf</param>
+    /// <param name="audioFileName">the file address without the filetype (ie test/audio)</param>
+    /// <param name="videoFileName">the file address without the filetype (ie test/audio)</param>
+    /// <param name="videoGameFileName">the file address without the filetype (ie test/audio)</param>
+    /// <param name="lituratureFileName">the file address without the filetype (ie test/audio)</param>
+    public static void saveShelfToDocumentJson(Shelf shelf, string fileLocation)
+    {
+        JsonSerializerOptions serializeShelfSettings = new JsonSerializerOptions();
+        serializeShelfSettings.Converters.Add(new JsonShelfConverter());
+        var json = JsonSerializer.Serialize(shelf.LibraryShelf, serializeShelfSettings);
+        File.WriteAllText(fileLocation + ".json", json);
+    }
+
+    /// <summary>
     /// checks to make sure you are not in backup mode, then saves the shelf as a text and csv file, finally it creates a back-up with todays date.
     /// </summary>
     /// <param name="shelf">the current working shelf</param>
@@ -236,8 +254,24 @@ public static class Save
         if (Backup.backupMode == false)
         {
             saveShelfToDocument(shelf, "saves/" + "audio", "saves/" + "video", "saves/" + "videoGame", "saves/" + "liturature");
-            //saveShelfToDocumentCSV(shelf, "savesCSV/" + "audio", "savesCSV/" + "video", "savesCSV/" + "videoGame", "savesCSV/" + "liturature");
             Backup.createBackup(shelf);
+        }
+    }
+
+    public enum SaveOptions
+    {
+        Xml,
+        Json
+    }
+    public static void saveAs(Shelf shelf, SaveOptions option, string fileLocationJsonOrXmlAudio, string fileLocationVideo = "", string fileLocationVideogame = "", string fileLocationLiturature = "")
+    {
+        if (option == SaveOptions.Json)
+        {
+            saveShelfToDocumentJson(shelf, fileLocationJsonOrXmlAudio);
+        }
+        else if (option == SaveOptions.Xml)
+        {
+            saveShelfToDocumentXML(shelf, fileLocationJsonOrXmlAudio, fileLocationVideo, fileLocationVideogame, fileLocationLiturature);
         }
     }
 }
