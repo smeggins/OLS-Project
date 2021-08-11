@@ -179,7 +179,7 @@ public class TestShelf
         
 
         //adding the testlist to the file
-        libraryShelf.addToList(testList);
+        //libraryShelf.addToList(testList);
 
         //Adding via list
         libraryShelf.add(Format.Liturature, testList);

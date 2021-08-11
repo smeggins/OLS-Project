@@ -67,22 +67,6 @@ public class Shelf
         return -1;
     }
 
-    public void addToList(List<Entity> items)
-    {
-
-        using (StreamWriter sw = new StreamWriter("shelfList.txt"))
-        {
-            foreach (Entity value in items)
-
-            { 
-                sw.WriteLine("Item Title: " + value.title);
-            }
-        }
-
-        Console.WriteLine("yooooo");
-    }
-
-
     public void add(Format type, List<Entity> list)
     {
         for (int i = 0; i < list.Count(); i++)
@@ -153,30 +137,38 @@ public class Shelf
         }
     }
 
-    public void delete(Format type)
+    public void delete(Format type, bool noCheck = false)
     {
-        Console.WriteLine("You are about to delete the the " + type + " category and all items containd within.");
-        Console.WriteLine("Are you sure you want to delete " + type + ": 'Y/N'");
-        string answer = "";
-        while (true)
+        if (noCheck == false)
         {
-            answer = Console.ReadLine();
-            if (answer == "Y")
+            Console.WriteLine("You are about to delete the the " + type + " category and all items containd within.");
+            Console.WriteLine("Are you sure you want to delete " + type + ": 'Y/N'");
+            string answer = "";
+            while (true)
             {
-                LibraryShelf.Remove(type);
-                Console.WriteLine(type + " Deleted...");
-                break;
-            }
-            else if (answer == "N")
-            {
-                Console.WriteLine("Action Aborted");
-                break;
-            }
-            else
-            {
-                Console.WriteLine("'Y' to delete " + type + " or 'N' to take no action");
+                answer = Console.ReadLine();
+                if (answer == "Y")
+                {
+                    LibraryShelf.Remove(type);
+                    Console.WriteLine(type + " Deleted...");
+                    break;
+                }
+                else if (answer == "N")
+                {
+                    Console.WriteLine("Action Aborted");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("'Y' to delete " + type + " or 'N' to take no action");
+                }
             }
         }
+        else
+        {
+            LibraryShelf.Remove(type);
+        }
+        
     }
 
     // return details of specific item
@@ -218,7 +210,7 @@ public class Shelf
     /// provides a convenient way to compare data sets without writing to a file
     /// </summary>
     /// <returns>List<List<string>> containing all data stored in the library shelf</returns>
-    public List<List<string>> extractData()
+    private List<List<string>> extractData()
     {
         List<List<string>> returnList = new List<List<string>>();
 

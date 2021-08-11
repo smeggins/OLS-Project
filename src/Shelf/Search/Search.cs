@@ -67,20 +67,20 @@ public class Search
         return results;
     }
 
-    public static HashSet<User> users = new HashSet<User>();
+    //public static HashSet<User> users = new HashSet<User>();
 
 
-    public static void searchUserNum(int usernum)
-    {
+    //public static void searchUserNum(int usernum)
+    //{
         
-        foreach (var user in users)
-        {
-            if (usernum == User.UserNumber)
-            {
-                Console.WriteLine(user.firstName);
-            }
-        }
-    }
+    //    foreach (var user in users)
+    //    {
+    //        if (usernum == User.UserNumber)
+    //        {
+    //            Console.WriteLine(user.firstName);
+    //        }
+    //    }
+    //}
 
 
 

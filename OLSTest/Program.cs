@@ -17,8 +17,12 @@ namespace OLSTest
             //Console.WriteLine("TestUpdate.testUpdateXml(): " + TestUpdate.testUpdateXml());
 
             // I didn't write an automatic save test because i felt that testLoad tests both save and load well enough... and I didn't want to :)
-            Console.WriteLine("TestLoad.testJson(): " + TestLoad.testJson());
-            Console.WriteLine("TestUpdate.testUpdateJson(): " + TestUpdate.testUpdateJson());
+            //Console.WriteLine("TestLoad.testJson(): " + TestLoad.testJson());
+            //Console.WriteLine("TestUpdate.testUpdateJson(): " + TestUpdate.testUpdateJson());
+
+            Console.WriteLine("testConsumer.test(): " + TestConsumer.test());
+            Console.WriteLine("testAdmin.test(): " + TestAdmin.test());
+            Console.WriteLine("testEditor.test(): " + TestEditor.test());
 
         }
     }

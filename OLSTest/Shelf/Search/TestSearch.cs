@@ -105,19 +105,19 @@ public static class TestSearch
         }
     }
 
-    public static HashSet<User> users = new HashSet<User>();
+    //public static HashSet<User> users = new HashSet<User>();
     
 
-    public static void searchUserNum(int usernum)
-    {
-        foreach(var user in users)
-        {
-            if(usernum == User.UserNumber)
-            {
-                //var userinfo = User.
+    //public static void searchUserNum(int usernum)
+    //{
+    //    foreach(var user in users)
+    //    {
+    //        if(usernum == User.UserNumber)
+    //        {
+    //            //var userinfo = User.
 
-                Console.WriteLine(user.firstName);
-            }
-        }
-    }
+    //            Console.WriteLine(user.firstName);
+    //        }
+    //    }
+    //}
 }
