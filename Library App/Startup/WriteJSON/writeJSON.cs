@@ -70,9 +70,6 @@ public class writeJSON
         
        
 
-        var videogamestuff = new List<videoGameData>();
-
-        videogamestuff.Add(videogameItem);
 
         string jsonString = JsonConvert.SerializeObject(videogameItem, Formatting.Indented);
         string filename = "json/videogameJson.json";
@@ -123,7 +120,4 @@ public class videoGameData
 
 }
 
-public class vidgameList
-{
-    public videoGameData[] lolinfo { get; set; } 
-}
+

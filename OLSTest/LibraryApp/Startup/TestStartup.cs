@@ -27,13 +27,25 @@ public static class TestStartup
         //writeJSON.writeVideoGameJson(libraryShelf, "League of Legends", VideoGameMedium.PC, "Riot Games");
         //writeJSON.writeVideoGameJson(libraryShelf, "Call of Duty: Modern Warefare 2", VideoGameMedium.PS5, "Activison");
         //ReadJson.readAudioJson();
-        ReadJson.readVideoGameJson("json/videogameJson.json");
+        /*ReadJson.readVideoGameJson("json/videogameJson.json");
 
         UpdateJSON.updateVideoGameJson("Call of Duty: Modern Warefare 2", "title", "Call of Duty: Modern Warefare 3");
         ReadJson.readVideoGameJson("json/updatedVidGame.json");
         ReadJson.readAudioJson("json/audioJson.json");
         UpdateJSON.updateAudioJson("Dipset Anthem", "label", "Def Jam");
-        ReadJson.readAudioJson("json/updatedAudio.json");
+        ReadJson.readAudioJson("json/updatedAudio.json"); */
+
+        Admin fayerubin = new Admin("Faye", "Rubin", 1);
+        Consumer.readItems("json/updatedAudio.json", "Audio");
+        Editor.updateVideoGameJson("League of Legends", "title", "Valorant");
+        //Editor.writeAudioJson(libraryShelf, "Dipset Anthem", AudioMedium.Record, "The Diplomats", "Roc Nation");
+        Admin.createnewUser("Abbe", "azale", 05);
+        //Admin.createnewUser("Kobe", "Bryant", 24);
+        Admin.addnewUser(fayerubin, "kobe", "Bryant", 24);
+        
+       
+        
+
 
     }
 }
