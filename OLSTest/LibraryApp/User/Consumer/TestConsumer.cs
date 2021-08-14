@@ -12,10 +12,11 @@ public class TestConsumer
         Person person = new Person("Consumer Chadwick");
         Consumer consumer = new Consumer(person, Position.Developer);
 
-        consumer.readEntity(shelf, Format.Video, "Alien");
+        List<List<string>> results = consumer.readEntity(shelf, Format.Video, "Alien");
+
         int index = consumer.search(shelf, Format.Video, Shelf.searchParam.title, "Alien");
 
-        if (index != -1)
+        if (index != -1 && results.Any(e => e.Any(v => v == "Alien")))
         {
             return true;
         }

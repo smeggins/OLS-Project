@@ -33,7 +33,7 @@ public abstract class User
     /// <param name="format">The format of the item to search</param>
     /// <param name="searchParam">whether searching by title or library code</param>
     /// <param name="titleOrLCode">the library code or item title</param>
-    /// <returns></returns>
+    /// <returns>the index of the search item</returns>
     public int search(Shelf shelf, Format format, Shelf.searchParam searchParam, string titleOrLCode)
     {
         return shelf.search(format, searchParam, titleOrLCode); 
@@ -45,8 +45,9 @@ public abstract class User
     /// <param name="shelf">the current working shelf</param>
     /// <param name="format">The format of the item to search</param>
     /// <param name="title">item title</param>
-    public void readEntity(Shelf shelf, Format format, string title)
+    /// <returns>the list of values for that item</returns>
+    public List<List<string>> readEntity(Shelf shelf, Format format, string title)
     {
-        shelf.read(format, title);
+        return shelf.read(format, title);
     }
 }

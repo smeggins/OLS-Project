@@ -13,6 +13,11 @@ public class Admin : Editor
         role = Role.Admin;
     }
 
+    /// <summary>
+    /// retrieves the index of the searched user
+    /// </summary>
+    /// <param name="fullName">users full name (ie "Jim Jam")</param>
+    /// <returns>the index of the user in the User.users List or null</returns>
     public int? userIndex(string fullName)
     {
         for (int i = 0; i < users.Count; i++)
@@ -26,11 +31,22 @@ public class Admin : Editor
         return null;
     }
 
+    /// <summary>
+    /// checks if a user with this name exists in the system
+    /// </summary>
+    /// <param name="fullName">users full name (ie "Jim Jam")</param>
+    /// <returns>true if the user is found</returns>
     public bool userExists(string fullName)
     {
         return userIndex(fullName) != null;
     }
 
+    /// <summary>
+    /// adds a new user to the User.users list
+    /// </summary>
+    /// <param name="a_user">and instantiated Person object</param>
+    /// <param name="a_position">the position they occupy</param>
+    /// <param name="role">the level of permissions the user has</param>
     public void addUser(Person a_user, Position a_position, Role role)
     {
         if (role == Role.Consumer)
@@ -47,6 +63,11 @@ public class Admin : Editor
         }
     }
 
+    /// <summary>
+    /// updates the users permissions
+    /// </summary>
+    /// <param name="fullName">users full name (ie "Jim Jam")</param>
+    /// <param name="newRole">the new level of permissions</param>
     public void changeRole(string fullName, Role newRole)
     {
         int? user = userIndex(fullName);
@@ -72,6 +93,11 @@ public class Admin : Editor
         }
     }
 
+    /// <summary>
+    /// updates the users position within the company
+    /// </summary>
+    /// <param name="fullName">users full name (ie "Jim Jam")</param>
+    /// <param name="newPos">the users new position</param>
     public void updatePosition(string fullName, Position newPos)
     {
         int? index = userIndex(fullName);
@@ -82,6 +108,10 @@ public class Admin : Editor
         }
     }
 
+    /// <summary>
+    /// removes a user from the system
+    /// </summary>
+    /// <param name="fullName">users full name (ie "Jim Jam")</param>
     public void deleteUser(string fullName)
     {
         int? index = userIndex(fullName);
@@ -91,4 +121,47 @@ public class Admin : Editor
             users.Remove(users[(int)index]);
         }
     }
+
+    /// <summary>
+    /// saves the current shelf as xml or Json
+    /// </summary>
+    /// <param name="shelf">the working shelf</param>
+    /// <param name="saveType">json or xml</param>
+    /// <param name="fileLocationJsonOrXmlAudio">the json location or the xml audio file location</param>
+    /// <param name="fileLocationVideo">the xml video file location</param>
+    /// <param name="fileLocationVideogame">the xml videogame file location</param>
+    /// <param name="fileLocationLiturature">the xml liturature file location</param>
+    public void saveShelf(Shelf shelf,Save.SaveOptions saveType, string fileLocationJsonOrXmlAudio, string fileLocationVideo="", string fileLocationVideogame="", string fileLocationLiturature="")
+    {
+        Save.saveAs(shelf, saveType, fileLocationJsonOrXmlAudio, fileLocationVideo, fileLocationVideogame, fileLocationLiturature);
+    }
+
+    /// <summary>
+    /// Loads shelf and replaces working shelf
+    /// </summary>
+    /// <param name="fileLocation">location of shelf Json without postfix (ie fileLocation/thefile)</param>
+    public void loadShelf(string fileLocation)
+    {
+        Load.loadJson(fileLocation);
+    }
+
+    /// <summary>
+    /// creates a back-up of shelf.
+    /// </summary>
+    /// <param name="shelf">working shelf</param>
+    public void backupShelf(Shelf shelf)
+    {
+        Backup.createBackup(shelf);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    // There is no load back-up As that was part of my lab partners project that they never did so i didn't
+    // bother adding that or set backup as default as there would be no way of testing and i don't want to
+    // start coding all the stuff that they never contributed to the project.
 }

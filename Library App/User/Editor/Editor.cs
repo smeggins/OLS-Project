@@ -45,6 +45,19 @@ public class Editor : User
     //}
 
     /// <summary>
+    /// Updates the working shelf with the new values present in the update Shelf
+    /// </summary>
+    /// <param name="shelf">the working shelf</param>
+    /// <param name="updateShelf">
+    /// expects an instantiated shelf with the updated values.
+    /// Can call Load.loadJson() to instantiate a shelf with update values from a formatted Json file
+    /// </param>
+    public void updateShelf(Shelf shelf, Shelf updateShelf)
+    {
+        Update.update(shelf, updateShelf);
+    }
+
+    /// <summary>
     /// deletes and item from the shelf
     /// </summary>
     /// <param name="shelf">the current working shelf</param>

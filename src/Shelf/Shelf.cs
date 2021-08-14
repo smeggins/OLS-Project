@@ -172,17 +172,36 @@ public class Shelf
     }
 
     // return details of specific item
-    public void read(Format type, string title)
+    public List<List<string>> read(Format type, string title)
     {
         int itemindex = search(type, searchParam.title, title);
+
+        List<List<string>> returnValues = null;
         if (itemindex != -1)
         {
-            LibraryShelf[type][itemindex].print();
+            if (type == Format.Audio)
+            {
+                Audio item = LibraryShelf[type][itemindex] as Audio;
+                returnValues = item.GetValues();
+            }
+            else if (type == Format.Video)
+            {
+                Video item = LibraryShelf[type][itemindex] as Video;
+                returnValues = item.GetValues();
+            }
+            else if (type == Format.VideoGame)
+            {
+                VideoGame item = LibraryShelf[type][itemindex] as VideoGame;
+                returnValues = item.GetValues();
+            }
+            else if (type == Format.Liturature)
+            {
+                Liturature item = LibraryShelf[type][itemindex] as Liturature;
+                returnValues = item.GetValues();
+            }
         }
-        else
-        {
-            Console.WriteLine(title + " Could not be found.");
-        }
+
+        return returnValues;
     }
 
 
